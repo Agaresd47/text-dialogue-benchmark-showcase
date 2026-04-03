@@ -29,6 +29,7 @@ It is not a raw chat dump. It is a curated, anonymized, interview-oriented bench
 - `core 8`: 8 strongest showcase cases
 - `48` baseline results from 3 models
 - rubric and taxonomy-driven evaluation artifacts
+- markdown source files for case assets, evaluation summary, and workflow notes
 
 ## Why this dataset exists
 
@@ -76,6 +77,18 @@ The dataset was produced through a multi-agent workflow:
 - runner: baseline inference and structured outputs
 - reviewer: rubric-based evaluation and taxonomy labeling
 
+## Included source files
+
+This public dataset does not only contain CSV overviews.
+
+It also includes markdown source files for:
+
+- `core_8` case folders
+- `full_16` case folders
+- final evaluation summary
+- final curated case sheet
+- interview-facing project notes
+
 ## Limitations
 
 - small scale by design
@@ -85,6 +98,7 @@ The dataset was produced through a multi-agent workflow:
 
 ## Public showcase references
 
+- GitHub repo: `https://github.com/Agaresd47/text-dialogue-benchmark-showcase`
 - Repo index: `README.md`
 - Core asset folder: `assets/core_8`
 - Full asset folder: `assets/full_16`
