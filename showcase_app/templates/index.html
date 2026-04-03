@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ summary.project.title }}</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">LLM Evaluation Showcase</p>
+          <h1>{{ summary.project.title }}</h1>
+          <p class="tagline">{{ summary.project.one_liner }}</p>
+          <p class="vision">{{ summary.project.vision }}</p>
+        </div>
+        <div class="hero-panel">
+          <div class="stat-grid">
+            <article class="stat-card">
+              <span class="stat-label">Core 8</span>
+              <strong>{{ summary.stats.core_cases }}</strong>
+            </article>
+            <article class="stat-card">
+              <span class="stat-label">Full 16</span>
+              <strong>{{ summary.stats.full_cases }}</strong>
+            </article>
+            <article class="stat-card">
+              <span class="stat-label">Models</span>
+              <strong>{{ summary.stats.models }}</strong>
+            </article>
+            <article class="stat-card">
+              <span class="stat-label">Results</span>
+              <strong>{{ summary.stats.results }}</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Model Takeaways</p>
+          <h2>三家模型的结果批评</h2>
+        </div>
+        <div class="model-grid">
+          {% for model in summary.model_ranking %}
+          <article class="model-card">
+            <div class="model-rank">#{{ model.rank }}</div>
+            <h3>{{ model.name }}</h3>
+            <p>{{ model.summary }}</p>
+            <div class="watchout">
+              <span>Watchout</span>
+              <p>{{ model.watchout }}</p>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="section split">
+        <div>
+          <div class="section-heading">
+            <p class="eyebrow">Structure</p>
+            <h2>Core 8 / Full 16 by Bucket</h2>
+          </div>
+          <div class="bucket-grid">
+            {% for bucket in summary.bucket_distribution %}
+            <article class="bucket-card">
+              <header>
+                <h3>{{ bucket.bucket }}</h3>
+                <p>{{ bucket.core_count }} core / {{ bucket.full_count }} full</p>
+              </header>
+              <div class="chip-group">
+                {% for case_id in bucket.core_cases %}
+                <span class="chip chip-core">{{ case_id }}</span>
+                {% endfor %}
+                {% for case_id in bucket.full_cases if case_id not in bucket.core_cases %}
+                <span class="chip">{{ case_id }}</span>
+                {% endfor %}
+              </div>
+            </article>
+            {% endfor %}
+          </div>
+        </div>
+        <aside class="side-panel">
+          <p class="eyebrow">Final Core 8</p>
+          <ol class="core-list">
+            {% for case_id in summary.core_8 %}
+            <li>{{ case_id }}</li>
+            {% endfor %}
+          </ol>
+        </aside>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Key Findings</p>
+          <h2>这一轮最值得讲的变化</h2>
+        </div>
+        <div class="highlight-list">
+          {% for item in summary.highlights %}
+          <article class="highlight-card">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.detail }}</p>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Where To Look</p>
+          <h2>原始资产入口</h2>
+        </div>
+        <div class="path-list">
+          {% for item in summary.paths %}
+          <article class="path-card">
+            <h3>{{ item.label }}</h3>
+            <code>{{ item.path }}</code>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

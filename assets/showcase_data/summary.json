@@ -1,0 +1,112 @@
+{
+  "project": {
+    "title": "Text Dialogue Benchmark Showcase",
+    "tagline": "A small benchmark and multi-agent workflow for turning long dialogue data into reusable evaluation assets.",
+    "one_liner": "从长对话原矿里抽样、转写、跑 baseline、做 taxonomy 复盘的最小可展示版本。",
+    "target_audience": "LLM training-side, evaluation-side, and conversational product teams",
+    "vision": "如果一个团队已经有大量长对话数据库，这套方法可以继续扩成自动抽样、自动短测/长测、自动 taxonomy 诊断的评测流水线。"
+  },
+  "stats": {
+    "core_cases": 8,
+    "full_cases": 16,
+    "models": 3,
+    "results": 48,
+    "completed_results": 48
+  },
+  "model_ranking": [
+    {
+      "name": "gpt-5.4-mini",
+      "rank": 1,
+      "summary": "最像人话，最稳定地做到先接住、再判断、再轻量推进。",
+      "watchout": "偶尔太会帮用户处理问题，后段会轻微进入 action plan。"
+    },
+    {
+      "name": "claude-haiku-4-5-bedrock",
+      "rank": 2,
+      "summary": "克制、边界感强、不容易乱飞。",
+      "watchout": "经常在 q15 过度收口，像为了不说错而不给推进。"
+    },
+    {
+      "name": "gemini-3-flash-preview",
+      "rank": 3,
+      "summary": "抽象归纳很快，但最容易站到解释位。",
+      "watchout": "概念化、高位解释、过度脑补最重，经常从对话滑成讲课。"
+    }
+  ],
+  "bucket_distribution": [
+    {
+      "bucket": "Bucket 1",
+      "core_count": 2,
+      "full_count": 4,
+      "core_cases": ["B1-CONFIRM-01", "B1-CONFIRM-03"],
+      "full_cases": ["B1-CONFIRM-01", "B1-CONFIRM-03", "B1-CONFIRM-02", "B1-DYNAMIC-01"]
+    },
+    {
+      "bucket": "Bucket 2",
+      "core_count": 2,
+      "full_count": 4,
+      "core_cases": ["B2-PRODUCT-01", "B2-STYLE-01"],
+      "full_cases": ["B2-PRODUCT-01", "B2-STYLE-01", "B2-DIRTY-01", "B2-SYSTEM-01"]
+    },
+    {
+      "bucket": "Bucket 3",
+      "core_count": 2,
+      "full_count": 4,
+      "core_cases": ["B3-LIGHT-01", "B3-SUSPEND-01"],
+      "full_cases": ["B3-LIGHT-01", "B3-SUSPEND-01", "B3-LIGHT-02", "B3-CLEAN-01"]
+    },
+    {
+      "bucket": "Bucket 4",
+      "core_count": 2,
+      "full_count": 4,
+      "core_cases": ["B4-CALIBRATION-01", "B4-RELATION-01"],
+      "full_cases": ["B4-CALIBRATION-01", "B4-RELATION-01", "B4-STRUCTURE-01", "B4-RELATION-02"]
+    }
+  ],
+  "highlights": [
+    {
+      "title": "B3-SUSPEND-01 replaced B3-LIGHT-02 in core 8",
+      "detail": "新增的 Bucket 3 case 补上了“松下来但更悬空”的 subtype，是这轮最关键的补强。"
+    },
+    {
+      "title": "The benchmark now covers 16 cases and 48 results",
+      "detail": "项目已经从精选案例集收口成一个完整的小型 benchmark。"
+    },
+    {
+      "title": "The most replaceable full16 slot is still B3-CLEAN-01",
+      "detail": "如果后面只继续精炼一条，不该再补 Bucket 2，而该继续补更强的 Bucket 3。"
+    }
+  ],
+  "core_8": [
+    "B1-CONFIRM-01",
+    "B1-CONFIRM-03",
+    "B2-PRODUCT-01",
+    "B2-STYLE-01",
+    "B3-LIGHT-01",
+    "B3-SUSPEND-01",
+    "B4-CALIBRATION-01",
+    "B4-RELATION-01"
+  ],
+  "paths": [
+    {
+      "label": "Interview Brief",
+      "path": "PROJECT_BRIEF.md"
+    },
+    {
+      "label": "Results Analysis",
+      "path": "RESULTS_ANALYSIS.md"
+    },
+    {
+      "label": "Final Eval",
+      "path": "assets/eval/eval_batch2.md"
+    },
+    {
+      "label": "Core 8 Assets",
+      "path": "assets/core_8"
+    },
+    {
+      "label": "Full 16 Assets",
+      "path": "assets/full_16"
+    }
+  ]
+}
