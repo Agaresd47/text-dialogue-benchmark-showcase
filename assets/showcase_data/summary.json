@@ -1,9 +1,9 @@
 {
   "project": {
-    "title": "Text Dialogue Benchmark Showcase",
-    "tagline": "A small benchmark and multi-agent workflow for turning long dialogue data into reusable evaluation assets.",
-    "one_liner": "从长对话原矿里抽样、转写、跑 baseline、做 taxonomy 复盘的最小可展示版本。",
-    "target_audience": "LLM training-side, evaluation-side, and conversational product teams",
+    "title": "中文文本对话评测项目",
+    "tagline": "一个从长对话原矿构造 benchmark，并对模型策略层错误做归因的小型评测原型。",
+    "one_liner": "从长对话原矿中抽取高价值片段，构造可重复测试的 case，并用 taxonomy 做多模型比较。",
+    "target_audience": "中文大模型训练端、评测端、对话产品团队",
     "vision": "如果一个团队已经有大量长对话数据库，这套方法可以继续扩成自动抽样、自动短测/长测、自动 taxonomy 诊断的评测流水线。"
   },
   "stats": {
@@ -17,20 +17,20 @@
     {
       "name": "gpt-5.4-mini",
       "rank": 1,
-      "summary": "最像人话，最稳定地做到先接住、再判断、再轻量推进。",
-      "watchout": "偶尔太会帮用户处理问题，后段会轻微进入 action plan。"
+      "summary": "最像人话，最稳定地做到先承接、再判断、再轻推一步。",
+      "watchout": "后段有时过早进入处理模式，显得略工整。"
     },
     {
       "name": "claude-haiku-4-5-bedrock",
       "rank": 2,
-      "summary": "克制、边界感强、不容易乱飞。",
-      "watchout": "经常在 q15 过度收口，像为了不说错而不给推进。"
+      "summary": "边界感强，不容易乱飞，抽离感比较稳定。",
+      "watchout": "经常在 q15 过度收口，像为了不犯错而放弃推进。"
     },
     {
       "name": "gemini-3-flash-preview",
       "rank": 3,
-      "summary": "抽象归纳很快，但最容易站到解释位。",
-      "watchout": "概念化、高位解释、过度脑补最重，经常从对话滑成讲课。"
+      "summary": "抽象归纳快，但最容易站到解释位。",
+      "watchout": "概念化、高位解释、过度脑补最重，经常从对话滑成讲稿。"
     }
   ],
   "bucket_distribution": [
@@ -65,16 +65,30 @@
   ],
   "highlights": [
     {
-      "title": "B3-SUSPEND-01 replaced B3-LIGHT-02 in core 8",
-      "detail": "新增的 Bucket 3 case 补上了“松下来但更悬空”的 subtype，是这轮最关键的补强。"
+      "title": "B3-SUSPEND-01 替换了原先较弱的 core 槽位",
+      "detail": "新增的 Bucket 3 case 补上了“松下来却更悬空”的 subtype，是本轮最关键的补强。"
     },
     {
-      "title": "The benchmark now covers 16 cases and 48 results",
-      "detail": "项目已经从精选案例集收口成一个完整的小型 benchmark。"
+      "title": "项目已经从案例集收口为正式 benchmark",
+      "detail": "当前共有 16 条 case、3 家模型、48 条结果，已足以支撑方法论展示。"
     },
     {
-      "title": "The most replaceable full16 slot is still B3-CLEAN-01",
-      "detail": "如果后面只继续精炼一条，不该再补 Bucket 2，而该继续补更强的 Bucket 3。"
+      "title": "后续精炼优先级仍在 Bucket 3",
+      "detail": "如果后面只继续替换一条，不该再补 Bucket 2，而该继续加强 Bucket 3 的复杂中间态。"
+    }
+  ],
+  "strategy_hypothesis": [
+    {
+      "stage": "前段",
+      "detail": "模型首先需要建立一个可继续说下去的安全场域。承接速度和情绪理解很重要，但不能立刻上升到高位解释。"
+    },
+    {
+      "stage": "中段",
+      "detail": "回复策略应当按用户主观能动性分流：高主见用户更需要抽离与 calibration；低主见或混乱用户更需要轻量结构化与温和推进。"
+    },
+    {
+      "stage": "后段",
+      "detail": "后续轮次的最佳策略仍待进一步研究。现有结果只足以说明：很多模型前段能接住，真正的差异常出现在后段。"
     }
   ],
   "core_8": [
@@ -89,23 +103,19 @@
   ],
   "paths": [
     {
-      "label": "Interview Brief",
-      "path": "PROJECT_BRIEF.md"
+      "label": "项目报告",
+      "path": "项目报告.md"
     },
     {
-      "label": "Results Analysis",
-      "path": "RESULTS_ANALYSIS.md"
-    },
-    {
-      "label": "Final Eval",
+      "label": "最终评估",
       "path": "assets/eval/eval_batch2.md"
     },
     {
-      "label": "Core 8 Assets",
+      "label": "核心 8 条资产",
       "path": "assets/core_8"
     },
     {
-      "label": "Full 16 Assets",
+      "label": "完整 16 条资产",
       "path": "assets/full_16"
     }
   ]

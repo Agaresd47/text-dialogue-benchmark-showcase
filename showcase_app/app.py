@@ -78,7 +78,7 @@ class ShowcaseHandler(BaseHTTPRequestHandler):
 
 def main() -> None:
     server = ThreadingHTTPServer(("127.0.0.1", 8008), ShowcaseHandler)
-    print("Showcase app running at http://127.0.0.1:8008")
+    print("展示页已启动：http://127.0.0.1:8008")
     try:
         server.serve_forever()
     except KeyboardInterrupt:

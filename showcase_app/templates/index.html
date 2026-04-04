@@ -10,7 +10,7 @@
     <main class="page">
       <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">LLM Evaluation Showcase</p>
+          <p class="eyebrow">中文大模型评测展示</p>
           <h1>{{ summary.project.title }}</h1>
           <p class="tagline">{{ summary.project.one_liner }}</p>
           <p class="vision">{{ summary.project.vision }}</p>
@@ -18,19 +18,19 @@
         <div class="hero-panel">
           <div class="stat-grid">
             <article class="stat-card">
-              <span class="stat-label">Core 8</span>
+              <span class="stat-label">核心 8 条</span>
               <strong>{{ summary.stats.core_cases }}</strong>
             </article>
             <article class="stat-card">
-              <span class="stat-label">Full 16</span>
+              <span class="stat-label">完整 16 条</span>
               <strong>{{ summary.stats.full_cases }}</strong>
             </article>
             <article class="stat-card">
-              <span class="stat-label">Models</span>
+              <span class="stat-label">模型</span>
               <strong>{{ summary.stats.models }}</strong>
             </article>
             <article class="stat-card">
-              <span class="stat-label">Results</span>
+              <span class="stat-label">结果</span>
               <strong>{{ summary.stats.results }}</strong>
             </article>
           </div>
@@ -39,8 +39,8 @@
 
       <section class="section">
         <div class="section-heading">
-          <p class="eyebrow">Model Takeaways</p>
-          <h2>三家模型的结果批评</h2>
+          <p class="eyebrow">模型结论</p>
+          <h2>三家模型的结果结论</h2>
         </div>
         <div class="model-grid">
           {% for model in summary.model_ranking %}
@@ -49,7 +49,7 @@
             <h3>{{ model.name }}</h3>
             <p>{{ model.summary }}</p>
             <div class="watchout">
-              <span>Watchout</span>
+              <span>主要问题</span>
               <p>{{ model.watchout }}</p>
             </div>
           </article>
@@ -60,8 +60,8 @@
       <section class="section split">
         <div>
           <div class="section-heading">
-            <p class="eyebrow">Structure</p>
-            <h2>Core 8 / Full 16 by Bucket</h2>
+            <p class="eyebrow">样本结构</p>
+            <h2>按 Bucket 划分的核心 8 条 / 完整 16 条</h2>
           </div>
           <div class="bucket-grid">
             {% for bucket in summary.bucket_distribution %}
@@ -83,7 +83,7 @@
           </div>
         </div>
         <aside class="side-panel">
-          <p class="eyebrow">Final Core 8</p>
+          <p class="eyebrow">最终核心 8 条</p>
           <ol class="core-list">
             {% for case_id in summary.core_8 %}
             <li>{{ case_id }}</li>
@@ -94,7 +94,7 @@
 
       <section class="section">
         <div class="section-heading">
-          <p class="eyebrow">Key Findings</p>
+          <p class="eyebrow">关键发现</p>
           <h2>这一轮最值得讲的变化</h2>
         </div>
         <div class="highlight-list">
@@ -109,7 +109,22 @@
 
       <section class="section">
         <div class="section-heading">
-          <p class="eyebrow">Where To Look</p>
+          <p class="eyebrow">工作假设</p>
+          <h2>初步模型范式假设</h2>
+        </div>
+        <div class="highlight-list">
+          {% for item in summary.strategy_hypothesis %}
+          <article class="highlight-card">
+            <h3>{{ item.stage }}</h3>
+            <p>{{ item.detail }}</p>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">查看入口</p>
           <h2>原始资产入口</h2>
         </div>
         <div class="path-list">
