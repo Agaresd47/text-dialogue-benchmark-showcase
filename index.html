@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="中文文本对话评测项目的静态展示页，展示 core 8 核心 case、48 条 baseline 结果与方法论摘要。">
+    <title>中文文本对话评测项目</title>
+    <link rel="stylesheet" href="./showcase.css">
+    <script src="./showcase-data.js" defer></script>
+    <script src="./showcase.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero" id="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">中文文本对话评测 showcase</p>
+          <h1>把长对话原矿压成 8 个能讲清楚的核心 case</h1>
+          <p class="hero-lead" id="project-lead"></p>
+          <div class="hero-points" id="hero-points"></div>
+        </div>
+        <aside class="hero-panel">
+          <div class="stat-grid" id="stat-grid"></div>
+          <div class="persona-card">
+            <p class="eyebrow">我在这个项目里做了什么</p>
+            <p class="persona-text">case 蒸馏、bucket 设计、rubric / taxonomy、48 条 baseline 与最终收口都由我主导。</p>
+          </div>
+        </aside>
+      </header>
+
+      <main>
+        <section class="section intro-grid">
+          <article class="intro-card">
+            <p class="eyebrow">30 秒可读</p>
+            <h2>这页适合快速扫给 HR，也够技术面试官继续往下看。</h2>
+            <p id="project-vision"></p>
+          </article>
+          <article class="intro-card">
+            <p class="eyebrow">适合岗位</p>
+            <h2>训练、评测、产品、数据策略都能对上。</h2>
+            <div class="chip-row" id="audience-chips"></div>
+          </article>
+          <article class="intro-card">
+            <p class="eyebrow">阅读顺序</p>
+            <h2>先看总览，再展开 8 个 case，最后看结果入口。</h2>
+            <ol class="ordered-list" id="reading-order"></ol>
+          </article>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <p class="eyebrow">模型结论</p>
+            <h2>三家模型的整体排序和主要差异</h2>
+          </div>
+          <div class="model-grid" id="model-grid"></div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <p class="eyebrow">core 8</p>
+            <h2>8 个核心 case，按 bucket 组织</h2>
+          </div>
+          <div class="bucket-nav" id="bucket-nav"></div>
+          <div class="case-grid" id="case-grid"></div>
+        </section>
+
+        <section class="section split-grid">
+          <article class="panel">
+            <p class="eyebrow">关键发现</p>
+            <h2>为什么这套 benchmark 值得保留</h2>
+            <div class="stack" id="highlight-list"></div>
+          </article>
+          <article class="panel">
+            <p class="eyebrow">策略假设</p>
+            <h2>后续可以继续验证的产品判断</h2>
+            <div class="stack" id="hypothesis-list"></div>
+          </article>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <p class="eyebrow">资产入口</p>
+            <h2>原始文档和结果文件都在仓库里</h2>
+          </div>
+          <div class="path-grid" id="path-grid"></div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
