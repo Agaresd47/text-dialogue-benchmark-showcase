@@ -9,8 +9,9 @@
 ## 建议阅读顺序
 
 1. [项目报告.md](./项目报告.md)
-2. [assets/eval/eval_batch2.md](./assets/eval/eval_batch2.md)
-3. [showcase_app/README.md](./showcase_app/README.md)
+2. [正式评测报告.md](./正式评测报告.md)
+3. [assets/eval/eval_batch2.md](./assets/eval/eval_batch2.md)
+4. [showcase_app/README.md](./showcase_app/README.md)
 
 ## 当前项目状态
 
