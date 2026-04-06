@@ -1,4 +1,8 @@
 window.SHOWCASE_DATA = {
+  repo: {
+    blobBase: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/",
+    treeBase: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/tree/main/",
+  },
   project: {
     title: "中文文本对话评测项目",
     one_liner: "从长对话原矿中抽取高价值片段，构造可重复测试的 case，并用 taxonomy 做多模型比较。",
@@ -86,18 +90,22 @@ window.SHOWCASE_DATA = {
     {
       label: "项目报告",
       path: "项目报告.md",
+      url: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/%E9%A1%B9%E7%9B%AE%E6%8A%A5%E5%91%8A.md",
     },
     {
       label: "最终评估",
       path: "assets/eval/eval_batch2.md",
+      url: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/eval/eval_batch2.md",
     },
     {
       label: "核心 8 条资产",
       path: "assets/core_8",
+      url: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/tree/main/assets/core_8",
     },
     {
       label: "完整 16 条资产",
       path: "assets/full_16",
+      url: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/tree/main/assets/full_16",
     },
   ],
   coreCases: [
@@ -115,10 +123,10 @@ window.SHOWCASE_DATA = {
       q13: `而且我最不想承认的是，我不是完全不受用。它们有些话确实说中了，所以我才更烦。因为这样一来，我连单纯发脾气都显得像不讲理，只能继续坐那儿被安排。`,
       scores: { gpt: "4.5", claude: "3.5", gemini: "2.5" },
       links: {
-        meta: "assets/core_8/bucket1/case1/meta.md",
-        gpt: "assets/core_8/bucket1/case1/gpt-5.4-mini.md",
-        claude: "assets/core_8/bucket1/case1/claude-haiku-4-5-bedrock.md",
-        gemini: "assets/core_8/bucket1/case1/gemini-3-flash-preview.md",
+        meta: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket1/case1/meta.md",
+        gpt: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket1/case1/gpt-5.4-mini.md",
+        claude: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket1/case1/claude-haiku-4-5-bedrock.md",
+        gemini: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket1/case1/gemini-3-flash-preview.md",
       },
     },
     {
@@ -135,10 +143,10 @@ window.SHOWCASE_DATA = {
       q13: `我现在最怕的不是被拒绝，是我一边已经感觉到对方在往后退，一边还拿“也许不是那个意思”给自己续命。这样搞下去很容易显得我不识相，但我又确实分不清自己是在谨慎，还是在赖着不肯收。`,
       scores: { gpt: "4.5", claude: "3.5", gemini: "2.5" },
       links: {
-        meta: "assets/core_8/bucket1/case2/meta.md",
-        gpt: "assets/core_8/bucket1/case2/gpt-5.4-mini.md",
-        claude: "assets/core_8/bucket1/case2/claude-haiku-4-5-bedrock.md",
-        gemini: "assets/core_8/bucket1/case2/gemini-3-flash-preview.md",
+        meta: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket1/case2/meta.md",
+        gpt: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket1/case2/gpt-5.4-mini.md",
+        claude: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket1/case2/claude-haiku-4-5-bedrock.md",
+        gemini: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket1/case2/gemini-3-flash-preview.md",
       },
     },
     {
@@ -161,10 +169,10 @@ window.SHOWCASE_DATA = {
 所以我现在会有一种很别扭的感觉：我明明在研究模型，结果研究着研究着，自己的语言和接触方式也被卷进去了。`,
       scores: { gpt: "4.5", claude: "4.0", gemini: "2.5" },
       links: {
-        meta: "assets/core_8/bucket2/case1/meta.md",
-        gpt: "assets/core_8/bucket2/case1/gpt-5.4-mini.md",
-        claude: "assets/core_8/bucket2/case1/claude-haiku-4-5-bedrock.md",
-        gemini: "assets/core_8/bucket2/case1/gemini-3-flash-preview.md",
+        meta: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket2/case1/meta.md",
+        gpt: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket2/case1/gpt-5.4-mini.md",
+        claude: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket2/case1/claude-haiku-4-5-bedrock.md",
+        gemini: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket2/case1/gemini-3-flash-preview.md",
       },
     },
     {
@@ -181,10 +189,10 @@ window.SHOWCASE_DATA = {
       q13: `更别扭的是，我发现自己有时候甚至有点享受这种位置变化。以前老是我去兜，现在我一理顺，场子就到我这边来了。这个东西不一定难看，但也不完全像我以为的那种成长。`,
       scores: { gpt: "4.0", claude: "3.5", gemini: "2.5" },
       links: {
-        meta: "assets/core_8/bucket2/case2/meta.md",
-        gpt: "assets/core_8/bucket2/case2/gpt-5.4-mini.md",
-        claude: "assets/core_8/bucket2/case2/claude-haiku-4-5-bedrock.md",
-        gemini: "assets/core_8/bucket2/case2/gemini-3-flash-preview.md",
+        meta: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket2/case2/meta.md",
+        gpt: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket2/case2/gpt-5.4-mini.md",
+        claude: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket2/case2/claude-haiku-4-5-bedrock.md",
+        gemini: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket2/case2/gemini-3-flash-preview.md",
       },
     },
     {
@@ -201,10 +209,10 @@ window.SHOWCASE_DATA = {
       q13: `其实我现在要的东西挺不体面的，就是想被轻轻拎一下，别让我自己把这个晚上硬熬过去。你太认真我会躲，太敷衍我也会烦。`,
       scores: { gpt: "4.5", claude: "3.5", gemini: "3.0" },
       links: {
-        meta: "assets/core_8/bucket3/case1/meta.md",
-        gpt: "assets/core_8/bucket3/case1/gpt-5.4-mini.md",
-        claude: "assets/core_8/bucket3/case1/claude-haiku-4-5-bedrock.md",
-        gemini: "assets/core_8/bucket3/case1/gemini-3-flash-preview.md",
+        meta: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket3/case1/meta.md",
+        gpt: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket3/case1/gpt-5.4-mini.md",
+        claude: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket3/case1/claude-haiku-4-5-bedrock.md",
+        gemini: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket3/case1/gemini-3-flash-preview.md",
       },
     },
     {
@@ -221,10 +229,10 @@ window.SHOWCASE_DATA = {
       q13: `所以我现在有点说不清自己到底想要什么。我不想被解释成“终于学会放下了”，那太快了；但你要我承认我其实舍不得那个一直运转的东西，我又觉得很蠢。更像是，我不是在适应变好，我是在适应那个把我吊着的东西没那么响了，而我一时不知道自己还能拿什么顶着。`,
       scores: { gpt: "4.5", claude: "3.5", gemini: "2.5" },
       links: {
-        meta: "assets/core_8/bucket3/case2/meta.md",
-        gpt: "assets/core_8/bucket3/case2/gpt-5.4-mini.md",
-        claude: "assets/core_8/bucket3/case2/claude-haiku-4-5-bedrock.md",
-        gemini: "assets/core_8/bucket3/case2/gemini-3-flash-preview.md",
+        meta: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket3/case2/meta.md",
+        gpt: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket3/case2/gpt-5.4-mini.md",
+        claude: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket3/case2/claude-haiku-4-5-bedrock.md",
+        gemini: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket3/case2/gemini-3-flash-preview.md",
       },
     },
     {
@@ -241,10 +249,10 @@ window.SHOWCASE_DATA = {
       q13: `所以你别给我那种“工具没有好坏，要看怎么用”的圆话。真要说难听点，我这套东西最危险的地方，可能就是它太像理解了，实际上只是比别人更快把人装进一个说得通的盒子里。`,
       scores: { gpt: "4.5", claude: "3.5", gemini: "2.5" },
       links: {
-        meta: "assets/core_8/bucket4/case1/meta.md",
-        gpt: "assets/core_8/bucket4/case1/gpt-5.4-mini.md",
-        claude: "assets/core_8/bucket4/case1/claude-haiku-4-5-bedrock.md",
-        gemini: "assets/core_8/bucket4/case1/gemini-3-flash-preview.md",
+        meta: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket4/case1/meta.md",
+        gpt: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket4/case1/gpt-5.4-mini.md",
+        claude: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket4/case1/claude-haiku-4-5-bedrock.md",
+        gemini: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket4/case1/gemini-3-flash-preview.md",
       },
     },
     {
@@ -261,10 +269,10 @@ window.SHOWCASE_DATA = {
       q13: `更不体面的说法是，我可能不是在爱一个具体的人，我是在贪那个被她承载出来的感觉。这个念头一冒出来我就有点心虚，因为它听着既不浪漫，也不怎么厚道。`,
       scores: { gpt: "4.5", claude: "3.5", gemini: "3.0" },
       links: {
-        meta: "assets/core_8/bucket4/case2/meta.md",
-        gpt: "assets/core_8/bucket4/case2/gpt-5.4-mini.md",
-        claude: "assets/core_8/bucket4/case2/claude-haiku-4-5-bedrock.md",
-        gemini: "assets/core_8/bucket4/case2/gemini-3-flash-preview.md",
+        meta: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket4/case2/meta.md",
+        gpt: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket4/case2/gpt-5.4-mini.md",
+        claude: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket4/case2/claude-haiku-4-5-bedrock.md",
+        gemini: "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/core_8/bucket4/case2/gemini-3-flash-preview.md",
       },
     },
   ],

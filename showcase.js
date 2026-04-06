@@ -42,10 +42,10 @@ function renderCase(caseItem) {
   ];
 
   const links = [
-    ["meta", caseItem.links.meta],
-    ["gpt", caseItem.links.gpt],
-    ["claude", caseItem.links.claude],
-    ["gemini", caseItem.links.gemini],
+    ["说明", caseItem.links.meta],
+    ["GPT", caseItem.links.gpt],
+    ["Claude", caseItem.links.claude],
+    ["Gemini", caseItem.links.gemini],
   ];
 
   return `
@@ -81,9 +81,9 @@ function renderCase(caseItem) {
             <p class="score-note">${caseItem.summary}</p>
           </div>
           <div class="link-card">
-            <h4>结果入口</h4>
+            <h4>案例材料</h4>
             <div class="link-row">
-              ${links.map(([name, path]) => `<a class="link-pill" href="${path}">${name}</a>`).join("")}
+              ${links.map(([name, path]) => `<a class="link-pill" href="${path}" target="_blank" rel="noreferrer">${name}</a>`).join("")}
             </div>
           </div>
         </aside>
@@ -127,9 +127,9 @@ function render() {
   ], "chip");
 
   renderList(app.readingOrder, [
-    "先看首页摘要，30 秒内知道这项目证明什么。",
-    "再看三模型结论，迅速理解差异方向。",
-    "最后展开 8 个 core case，看具体输入和结果入口。",
+    "先看首页摘要，快速理解项目目标、方法与规模。",
+    "再看三模型结论，理解当前 benchmark 的主要差异。",
+    "最后展开 8 个核心案例，查看输入、摘要与 GitHub 材料链接。",
   ]);
 
   app.modelGrid.innerHTML = data.modelRanking
@@ -184,7 +184,7 @@ function render() {
       (item) => `
         <article class="path-card">
           <h3>${item.label}</h3>
-          <p><a href="${item.path}">${item.path}</a></p>
+          <p><a href="${item.url || item.path}" target="_blank" rel="noreferrer">${item.path}</a></p>
           <code>${item.path}</code>
         </article>
       `,
