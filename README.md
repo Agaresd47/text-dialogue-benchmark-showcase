@@ -20,7 +20,7 @@ https://agaresd47.github.io/text-dialogue-benchmark-showcase/
 - case 蒸馏：从长周期真实对话中筛选能代表隐性需求模式的样本。
 - bucket 设计：把 case 按真实交互姿态分成 4 类。
 - 评测框架：定义 rubric 和 error taxonomy。
-- baseline 组织：完成 16 条 case、3 个模型、48 条结果的分析与结论整理。
+- baseline 组织：完成 16 条案例、3 个模型、48 条结果的分析与结论整理。
 - 展示页：将 core 8 制作为可直接托管的静态页面，用于公开展示。
 
 ## 质量锚点
@@ -38,7 +38,7 @@ https://agaresd47.github.io/text-dialogue-benchmark-showcase/
 ## 岗位相关性
 
 - 对产品：默认回复策略不该只有一种风格，而应按轮次和用户主观能动性分层。
-- 对训练：需要围绕特定 bucket 持续补高信号案例，而不是泛泛扩样本量。
+- 对训练：需要围绕特定 bucket 持续补高信号案例，而不是泛泛扩大样本量。
 - 对评测：单轮 prompt 不足以暴露连续交互问题，后续轮次往往才是差异真正拉开的地方。
 
 ## 访问方式
