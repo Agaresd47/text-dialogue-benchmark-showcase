@@ -97,16 +97,16 @@ function render() {
   app.heroLead.textContent = `${data.project.one_liner} 面向 ${data.project.target_audience}。`;
   app.vision.textContent = data.project.vision;
   renderPills(app.heroPoints, [
-    `${data.stats.core_cases} core case`,
-    `${data.stats.full_cases} full case`,
-    `${data.stats.results} baseline 结果`,
+    `${data.stats.core_cases} 个核心案例`,
+    `${data.stats.full_cases} 个完整案例`,
+    `${data.stats.results} 条评测结果`,
   ]);
 
   const statCards = [
-    ["Core 8", data.stats.core_cases],
-    ["Full 16", data.stats.full_cases],
-    ["Models", data.stats.models],
-    ["Results", data.stats.results],
+    ["核心案例", data.stats.core_cases],
+    ["完整案例", data.stats.full_cases],
+    ["模型数量", data.stats.models],
+    ["评测结果", data.stats.results],
   ];
   app.statGrid.innerHTML = statCards
     .map(
@@ -129,7 +129,7 @@ function render() {
   renderList(app.readingOrder, [
     "先看首页摘要，快速理解项目目标、方法与规模。",
     "再看三模型结论，理解当前 benchmark 的主要差异。",
-    "最后展开 8 个核心案例，查看输入、摘要与 GitHub 材料链接。",
+    "最后浏览 8 个核心案例，查看输入、摘要与 GitHub 材料链接。",
   ]);
 
   app.modelGrid.innerHTML = data.modelRanking
@@ -140,7 +140,7 @@ function render() {
           <h3>${item.name}</h3>
           <p>${item.summary}</p>
           <div class="watchout">
-            <span>watchout</span>
+            <span>主要特点</span>
             <p>${item.watchout}</p>
           </div>
         </article>
@@ -151,7 +151,7 @@ function render() {
   app.bucketNav.innerHTML = data.bucketDistribution
     .map(
       (bucket) =>
-        `<a class="anchor-chip" href="#${bucket.coreCases[0]}">${bucket.bucket} · ${bucket.coreCount}/4 core</a>`,
+        `<a class="anchor-chip" href="#${bucket.coreCases[0]}">${bucket.bucket} · ${bucket.coreCount}/4 核心案例</a>`,
     )
     .join("");
 
