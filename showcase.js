@@ -73,7 +73,7 @@ function renderCase(caseItem) {
           <div class="score-card">
             <div class="score-head">
               <h4>三模型对比</h4>
-              <span class="muted">来自 core 8 摘要</span>
+              <span class="muted">来自核心案例摘要</span>
             </div>
             <div class="score-row">
               ${scores.map(([name, score]) => `<span class="score-pill">${name} ${score}</span>`).join("")}
