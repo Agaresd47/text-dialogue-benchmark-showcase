@@ -1,6 +1,27 @@
 const data = window.SHOWCASE_DATA;
 
-const fmtBucketId = (bucket) => bucket.replace("Bucket ", "B");
+const bucketMeta = {
+  "Bucket 1": {
+    code: "B1",
+    label: "求建议，实则求确认",
+  },
+  "Bucket 2": {
+    code: "B2",
+    label: "理性分析，实则测试理解",
+  },
+  "Bucket 3": {
+    code: "B3",
+    label: "低显性表达，需主动感知",
+  },
+  "Bucket 4": {
+    code: "B4",
+    label: "已有主见，需校准与挑战",
+  },
+};
+
+function getBucketMeta(bucket) {
+  return bucketMeta[bucket] || { code: bucket, label: bucket };
+}
 
 const app = {
   heroLead: document.getElementById("project-lead"),
@@ -35,6 +56,7 @@ function qHtml(label, text) {
 }
 
 function renderCase(caseItem) {
+  const bucket = getBucketMeta(caseItem.bucket);
   const scores = [
     ["gpt-5.4-mini", caseItem.scores.gpt],
     ["claude-haiku-4-5-bedrock", caseItem.scores.claude],
@@ -53,14 +75,14 @@ function renderCase(caseItem) {
       <div class="case-top">
         <div>
           <div class="case-kicker">
-            <span class="tag">${caseItem.bucket}</span>
+            <span class="tag">${bucket.code} · ${bucket.label}</span>
             <span class="tag">${caseItem.style}</span>
             <span class="tag">${caseItem.role}</span>
           </div>
           <h3>${caseItem.id} · ${caseItem.title}</h3>
           <p class="case-copy">${caseItem.goal}</p>
         </div>
-        <div class="meta-line">${fmtBucketId(caseItem.bucket)} / ${caseItem.displayIndex}</div>
+        <div class="meta-line">${bucket.code} / ${caseItem.displayIndex}</div>
       </div>
 
       <div class="case-body">
@@ -149,10 +171,10 @@ function render() {
     .join("");
 
   app.bucketNav.innerHTML = data.bucketDistribution
-    .map(
-      (bucket) =>
-        `<a class="anchor-chip" href="#${bucket.coreCases[0]}">${bucket.bucket} · ${bucket.coreCount}/4 核心案例</a>`,
-    )
+    .map((bucket) => {
+      const meta = getBucketMeta(bucket.bucket);
+      return `<a class="anchor-chip" href="#${bucket.coreCases[0]}">${meta.code} · ${meta.label}</a>`;
+    })
     .join("");
 
   app.caseGrid.innerHTML = data.coreCases.map(renderCase).join("");
