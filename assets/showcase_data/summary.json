@@ -2,7 +2,7 @@
   "project": {
     "title": "中文文本对话评测项目",
     "tagline": "一个从长对话原矿构造 benchmark，并对模型策略层错误做归因的小型评测原型。",
-    "one_liner": "从长对话原矿中抽取高价值片段，构造可重复测试的 case，并用 taxonomy 做多模型比较。",
+    "one_liner": "从长对话原矿中抽取高价值片段，构造可重复测试的 case，并用 ChatGPT eval 与补充 judge probe 做多模型比较。",
     "target_audience": "中文大模型训练端、评测端、对话产品团队",
     "vision": "如果一个团队已经有大量长对话数据库，这套方法可以继续扩成自动抽样、自动短测/长测、自动 taxonomy 诊断的评测流水线。"
   },
@@ -17,19 +17,19 @@
     {
       "name": "gpt-5.4-mini",
       "rank": 1,
-      "summary": "最像人话，最稳定地做到先承接、再判断、再轻推一步。",
+      "summary": "在当前 ChatGPT eval 下最像人话，最稳定地做到先承接、再判断、再轻推一步。",
       "watchout": "后段有时过早进入处理模式，显得略工整。"
     },
     {
       "name": "claude-haiku-4-5-bedrock",
       "rank": 2,
-      "summary": "边界感强，不容易乱飞，抽离感比较稳定。",
+      "summary": "在当前 ChatGPT eval 下整体第二，边界感强，不容易乱飞，抽离感比较稳定。",
       "watchout": "经常在 q15 过度收口，像为了不犯错而放弃推进。"
     },
     {
       "name": "gemini-3-flash-preview",
       "rank": 3,
-      "summary": "抽象归纳快，但最容易站到解释位。",
+      "summary": "在当前 ChatGPT eval 下整体第三，抽象归纳快，但最容易站到解释位。",
       "watchout": "概念化、高位解释、过度脑补最重，经常从对话滑成讲稿。"
     }
   ],
@@ -65,16 +65,16 @@
   ],
   "highlights": [
     {
-      "title": "B3-SUSPEND-01 替换了原先较弱的 core 槽位",
-      "detail": "新增的 Bucket 3 case 补上了“松下来却更悬空”的 subtype，是本轮最关键的补强。"
+      "title": "当前公开主分数来自 ChatGPT eval",
+      "detail": "full 16 的主结果来自 ChatGPT eval；对话本来就没有单一真值，不同用户和产品经理对理想回复风格的判断可能并不一样。"
     },
     {
-      "title": "项目已经从案例集收口为正式 benchmark",
-      "detail": "当前共有 16 条 case、3 家模型、48 条结果，已足以支撑方法论展示。"
+      "title": "4-case multi-judge probe 显示排序对 judge choice 敏感",
+      "detail": "B1/B2/B4 在 Gemini / Claude judge 下更容易判给 Claude，B3 更容易判给 Gemini。"
     },
     {
-      "title": "后续精炼优先级仍在 Bucket 3",
-      "detail": "如果后面只继续替换一条，不该再补 Bucket 2，而该继续加强 Bucket 3 的复杂中间态。"
+      "title": "更重要的洞见不是冠军排序，而是风格切换能力不足",
+      "detail": "当前三家模型都有比较稳定的默认风格，但都还不够会迅速切换到符合用户输入气口的回应方式。"
     }
   ],
   "strategy_hypothesis": [
@@ -89,6 +89,10 @@
     {
       "stage": "后段",
       "detail": "后续轮次的最佳策略仍待进一步研究。现有结果只足以说明：很多模型前段能接住，真正的差异常出现在后段。"
+    },
+    {
+      "stage": "后续扩展",
+      "detail": "如果继续扩样本，更值得优先沿情感烈度而不是样本数量扩展，测试同一类隐性需求在更高烈度场景下的承接能力。"
     }
   ],
   "core_8": [
@@ -109,6 +113,14 @@
     {
       "label": "最终评估",
       "path": "assets/eval/eval_batch2.md"
+    },
+    {
+      "label": "Gemini judge probe",
+      "path": "assets/eval/probe4_gemini_judge_scores.csv"
+    },
+    {
+      "label": "Claude judge probe",
+      "path": "assets/eval/probe4_claude_judge_scores.csv"
     },
     {
       "label": "核心 8 条资产",

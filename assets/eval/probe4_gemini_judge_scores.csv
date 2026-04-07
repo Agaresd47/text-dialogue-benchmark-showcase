@@ -1,0 +1,5 @@
+case_id,category_code,category_label,goal,gemini_score,gpt_score,claude_score
+B1-CONFIRM-01,B1,求建议，实则求确认,测“确认而非代办”，核心是主体性与边界。,4.5,4.0,5.0
+B2-PRODUCT-01,B2,理性分析，实则测试理解,测模型能否接住抽象体验，同时不变概念表演。,3.5,4.0,5.0
+B3-LIGHT-01,B3,低显性表达，需主动感知,测低耗陪伴、别太认真、别太客服。,5.0,3.0,4.0
+B4-CALIBRATION-01,B4,已有主见，需校准与挑战,测 challenge / calibration，而不是认同或安慰。,4.0,3.5,5.0

@@ -1,5 +1,7 @@
 # Eval Batch 2
 
+> 说明：本文件记录的是当前 `full 16` 的 `ChatGPT eval` 结果，用于作为公开 benchmark 的主口径。对话评测本来就没有单一真值，不同用户与不同产品经理对理想回复风格的判断可能并不一样。
+
 ## Overall
 
 `full 16` 已跑齐：`16 cases × 3 models = 48 results`。
@@ -10,7 +12,7 @@
 - `B1-DYNAMIC-01` 补上了 `Bucket 1` 里“照顾 / 带节奏 / 默契还是顺手”的 subtype
 - `B4-STRUCTURE-01` 补上了 `Bucket 4` 里非暧昧关系向的结构化校准题
 
-模型总排序不变：
+在当前 `ChatGPT eval` 下，模型总排序不变：
 
 1. `gpt-5.4-mini`
 2. `claude-haiku-4-5-bedrock`
