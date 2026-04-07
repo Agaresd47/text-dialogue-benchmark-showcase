@@ -260,6 +260,15 @@ body::before {
   gap: 14px;
 }
 
+.model-figure-card,
+.probe-card {
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
 .model-card {
   padding: 20px;
 }
@@ -297,6 +306,69 @@ body::before {
   font: 700 0.75rem/1.2 "Avenir Next", "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.09em;
   text-transform: uppercase;
+}
+
+.model-figure-card {
+  margin-top: 18px;
+  padding: 14px;
+}
+
+.model-figure-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  border: 1px solid rgba(31, 41, 40, 0.08);
+}
+
+.probe-section {
+  margin-top: 18px;
+}
+
+.probe-heading h3,
+.probe-card h3 {
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.probe-heading p,
+.probe-card p,
+.probe-bottom-note {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.probe-heading {
+  margin-bottom: 14px;
+}
+
+.probe-heading p {
+  margin: 8px 0 0;
+}
+
+.probe-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.probe-card {
+  padding: 18px;
+}
+
+.probe-card h3 {
+  font-size: 1.08rem;
+}
+
+.probe-card p {
+  margin: 10px 0 0;
+}
+
+.probe-bottom-note {
+  margin: 16px 0 0;
+  padding: 15px 18px 0;
+  border-top: 1px solid var(--line);
+  font-size: 1.02rem;
 }
 
 .bucket-nav {
@@ -504,6 +576,7 @@ body::before {
   .hero,
   .intro-grid,
   .model-grid,
+  .probe-grid,
   .split-grid,
   .path-grid,
   .case-body {

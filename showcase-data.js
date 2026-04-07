@@ -7,7 +7,7 @@ window.SHOWCASE_DATA = {
     title: "中文文本对话评测项目",
     one_liner: "从长周期真实对话中筛选高价值片段，构造可重复测试的案例，并用 ChatGPT eval 与补充 judge probe 做多模型比较。",
     target_audience: "中文大模型训练端、评测端、对话产品团队",
-    vision: "如果一个团队已经有大量长对话数据库，这套方法可以继续扩成自动抽样、自动短测/长测、自动 taxonomy 诊断的评测流水线。",
+    vision: "如果已经有大量长对话数据库，本方法可以继续扩展为自动抽样、短测、长测、自动 taxonomy 诊断的评测流水线。",
   },
   stats: {
     core_cases: 8,
@@ -26,7 +26,7 @@ window.SHOWCASE_DATA = {
     {
       name: "claude-haiku-4-5-bedrock",
       rank: 2,
-      summary: "在当前 ChatGPT eval 下整体第二，边界感强，不容易乱飞，抽离感比较稳定。",
+      summary: "在当前 ChatGPT eval 下整体第二，边界感强，不容易脱离主题，抽离感比较稳定。",
       watchout: "经常在 q15 过早结束推进，像为了避免出错而放弃继续展开。",
     },
     {
@@ -36,6 +36,29 @@ window.SHOWCASE_DATA = {
       watchout: "概念化、高位解释、过度脑补最重，经常从对话滑成讲稿。",
     },
   ],
+  modelProbe: {
+    title: "多模型交叉评审",
+    lead: "尽管我们提供了统一的 rubric 和 taxonomy，各模型 judge 依然无法达成完全一致的意见。",
+    cards: [
+      {
+        title: "ChatGPT eval 偏好",
+        detail: "更偏好稳、准、轻推进的回复。只要模型能先接住，再判断，再往前轻推一步，就更容易拿到高分；因此 GPT 在当前主口径下更容易排到第一。",
+      },
+      {
+        title: "Claude eval 偏好",
+        detail: "更偏好边界清楚、少代办、少操作化、不过度上价值的回复。只要回答不脱离主题，又能保持克制和抽离感，Claude judge 就更容易给高分，因此它在多数代表 case 上更倾向判给 Claude responder。",
+      },
+      {
+        title: "Gemini eval 偏好",
+        detail: "在 B1、B2、B4 上也更偏好少代办、少高位说教的风格，所以多数会把 Claude 判到前面；但到了 B3 这种轻陪伴场景，又更偏好有松弛感、像在陪聊而不是在服务的回答，因此会把 Gemini responder 判到第一。",
+      },
+      {
+        title: "分歧强度",
+        detail: "在这轮 4-case probe 中，avg_responder_spread = 1.54，avg_judge_spread = 1.25。说明 responder 差异仍然存在，但 judge 偏好已经足以显著改变第一名归属。",
+      },
+    ],
+    bottomNote: "不同的用户输入气口，需要不同的回应方式；目前三家模型都有稳定默认风格，但都还不够会快速切换到匹配当前需求的风格。",
+  },
   highlights: [
     {
       title: "当前公开主分数来自 ChatGPT eval",

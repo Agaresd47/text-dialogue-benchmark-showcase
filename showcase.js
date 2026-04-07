@@ -31,6 +31,10 @@ const app = {
   audience: document.getElementById("audience-chips"),
   readingOrder: document.getElementById("reading-order"),
   modelGrid: document.getElementById("model-grid"),
+  probeTitle: document.getElementById("probe-title"),
+  probeLead: document.getElementById("probe-lead"),
+  probeGrid: document.getElementById("probe-grid"),
+  probeBottomNote: document.getElementById("probe-bottom-note"),
   bucketNav: document.getElementById("bucket-nav"),
   caseGrid: document.getElementById("case-grid"),
   highlights: document.getElementById("highlight-list"),
@@ -44,6 +48,15 @@ function renderPills(target, items, className = "pill") {
 
 function renderList(target, items) {
   target.innerHTML = items.map((item) => `<li>${item}</li>`).join("");
+}
+
+function renderProbeCard(item) {
+  return `
+    <article class="probe-card">
+      <h3>${item.title}</h3>
+      <p>${item.detail}</p>
+    </article>
+  `;
 }
 
 function qHtml(label, text) {
@@ -149,8 +162,8 @@ function render() {
   ], "chip");
 
   renderList(app.readingOrder, [
-    "先看首页摘要，快速理解项目目标、方法与规模。",
-    "再看三模型结论，理解当前 benchmark 的主要差异。",
+    "先看首页摘要，阐述了项目目标、方法与规模。",
+    "再看三模型结论，展现了当前 benchmark 的主要差异。",
     "最后浏览 8 个核心案例，查看输入、摘要与 GitHub 材料链接。",
   ]);
 
@@ -169,6 +182,11 @@ function render() {
       `,
     )
     .join("");
+
+  app.probeTitle.textContent = data.modelProbe.title;
+  app.probeLead.textContent = data.modelProbe.lead;
+  app.probeGrid.innerHTML = data.modelProbe.cards.map(renderProbeCard).join("");
+  app.probeBottomNote.textContent = data.modelProbe.bottomNote;
 
   app.bucketNav.innerHTML = data.bucketDistribution
     .map((bucket) => {
