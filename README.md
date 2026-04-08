@@ -5,8 +5,6 @@ This repository is a public showcase project for roles related to Chinese LLM pr
 **[Chinese README](https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/README_ch.md
 )**
 
-## Live Showcase
-
 **[Web entry](https://agaresd47.github.io/text-dialogue-benchmark-showcase/)**
 
 
