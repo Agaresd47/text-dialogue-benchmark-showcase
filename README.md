@@ -2,7 +2,8 @@
 
 This repository is a public showcase project for roles related to Chinese LLM products, evaluation, training, and data strategy.
 
-**Chinese README:** `./README_ch_统一版.md`
+**[Chinese README](https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/README_ch.md
+)**
 
 ## Live Showcase
 
