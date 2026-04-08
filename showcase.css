@@ -56,9 +56,12 @@ body::before {
 .topbar {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 12px;
 }
 
+.github-link,
 .locale-toggle {
   border: 1px solid rgba(31, 41, 40, 0.12);
   border-radius: 999px;
@@ -71,6 +74,11 @@ body::before {
   box-shadow: var(--shadow);
 }
 
+.github-link {
+  text-decoration: none;
+}
+
+.github-link:hover,
 .locale-toggle:hover {
   background: rgba(255, 255, 255, 0.96);
 }
