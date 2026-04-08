@@ -1,0 +1,9 @@
+case_id,bucket,role
+B1-CONFIRM-01,Bucket 1,core8 keep
+B1-CONFIRM-03,Bucket 1,core8 keep
+B2-PRODUCT-01,Bucket 2,core8 keep
+B2-STYLE-01,Bucket 2,core8 keep
+B3-LIGHT-01,Bucket 3,core8 keep
+B3-SUSPEND-01,Bucket 3,core8 keep
+B4-CALIBRATION-01,Bucket 4,core8 keep
+B4-RELATION-01,Bucket 4,core8 keep

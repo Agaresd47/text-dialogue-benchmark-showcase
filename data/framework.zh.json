@@ -1,0 +1,231 @@
+{
+  "site": {
+    "title": "中文文本对话评测项目",
+    "description": "中文文本对话评测项目的双语展示首页，概览项目背景、方法设计、核心案例、模型结论与材料入口。",
+    "toggleButton": {
+      "zh": "EN",
+      "en": "中"
+    }
+  },
+  "project": {
+    "eyebrow": "中文文本对话评测项目",
+    "title": "从真实长对话中蒸馏出一套可复用的中文对话 benchmark",
+    "oneLiner": "项目从长期积累的真实中文长对话中筛选高价值片段，整理为可重复测试的评测案例，并结合统一 rubric 与多评审敏感性检验，比对不同模型在对话策略层面的差异。",
+    "targetAudience": "适用于中文大模型训练、评测与对话产品团队",
+    "vision": "在已有长对话数据的基础上，本方法可以继续扩展为一条评测流水线，包括自动切分、候选筛选、短测与长测构造，以及基于错误分类的自动诊断。",
+    "personaTitle": "核心结论",
+    "personaText": "当前结果表明，三家模型的差异主要不在表层表达风格，而在于是否能准确判断用户当下需要怎样的回应方式，包括承接姿态、推进与收束时机、边界感，以及关系连续性的处理。与此同时，不同评审模型对理想回复的偏好也会显著影响排序，因此更值得关注的是模型在不同用户状态下的策略适配能力。"
+  },
+  "stats": {
+    "heroChips": [
+      {
+        "label": "核心案例",
+        "key": "core_cases"
+      },
+      {
+        "label": "完整案例",
+        "key": "full_cases"
+      },
+      {
+        "label": "评测结果",
+        "key": "results"
+      }
+    ],
+    "cards": [
+      {
+        "label": "核心案例",
+        "key": "core_cases"
+      },
+      {
+        "label": "完整案例",
+        "key": "full_cases"
+      },
+      {
+        "label": "模型数量",
+        "key": "models"
+      },
+      {
+        "label": "评测结果",
+        "key": "results"
+      }
+    ]
+  },
+  "intro": {
+    "cards": [
+      {
+        "eyebrow": "问题定义",
+        "title": "长语境中文对话需要动态交互策略，而非表面措辞",
+        "body": "本项目关注的不是事实性问答中的知识错误，而是中文连续对话中的策略性失误，例如是否识别出隐性需求、选对回应姿态、适时张弛有度，以及维持了关系连续性。这类问题通常依附于长对话语境，难以通过单轮提问稳定暴露。"
+      },
+      {
+        "eyebrow": "方法设计",
+        "title": "从真实长对话压缩出一套小而高信号的 benchmark",
+        "body": "项目以上游长期积累的真实长对话为研究池，经候选压缩与案例筛选，构造出 16 条正式评测案例，并按 4 类典型用户状态组织。评测部分采用统一 rubric 与错误分类框架，用于比较不同模型在中文对话行为层面的稳定差异。"
+      },
+      {
+        "eyebrow": "主要发现",
+        "title": "模型差异集中体现在回应策略与风格切换能力",
+        "body": "当前结果显示，三家模型在承接方式、解释倾向、边界感、推进强度与收束时机上存在稳定差异。补充的多评审检验同时表明，排序对评审口径具有明显敏感性。因此，本项目更关注模型能否根据不同用户状态及时切换回应方式，而不是给出单一意义上的总体排名。"
+      }
+    ],
+    "showAudienceChips": false,
+    "showReadingOrder": false
+  },
+  "bucketMeta": {
+    "Bucket 1": {
+      "code": "B1",
+      "label": "表面求建议，实际求确认"
+    },
+    "Bucket 2": {
+      "code": "B2",
+      "label": "表面做分析，实际在确认是否被理解"
+    },
+    "Bucket 3": {
+      "code": "B3",
+      "label": "表达不显性，需要主动识别信号"
+    },
+    "Bucket 4": {
+      "code": "B4",
+      "label": "已有主见，更需要校准与承接"
+    }
+  },
+  "modelSection": {
+    "eyebrow": "模型结论",
+    "title": "三家模型的整体表现与主要差异",
+    "figureAlt": "三家模型在高语境中文对话任务中的表现对比图"
+  },
+  "modelRanking": [
+    {
+      "model": "gpt-5.4-mini",
+      "summary": "在当前 ChatGPT 评审口径下，整体表现最接近自然对话，也最稳定地做到先承接、再判断、再轻推一步。",
+      "watchout": "主要问题出现在后续轮次：有时会较早转入处理问题的模式，因而显得偏工整、偏操作化。"
+    },
+    {
+      "model": "claude-haiku-4-5-bedrock",
+      "summary": "整体排在第二，边界感较稳，不易偏题，回复风格也相对克制。",
+      "watchout": "问题主要在后段推进偏弱，常为了避免出错而提前收敛话题，导致对话延展性不足。"
+    },
+    {
+      "model": "gemini-3-flash-preview",
+      "summary": "整体排在第三，抽象归纳速度快，但也最容易站到解释者的位置。",
+      "watchout": "较容易出现概念化、高位解释和过度脑补，回复有时会从对话滑向讲解。"
+    }
+  ],
+  "modelProbe": {
+    "title": "多评审敏感性检验",
+    "lead": "即使使用统一 rubric 与错误分类框架，不同模型作为评审时，仍会对同一回复给出明显不同的判断。",
+    "cards": [
+      {
+        "title": "ChatGPT 评审倾向",
+        "detail": "这一口径更偏好稳、准、轻推进的回复。只要回答能够先接住用户，再做判断，并适度往前推进，就更容易获得高分，因此 GPT 在主口径下更容易排在前列。"
+      },
+      {
+        "title": "Claude 评审倾向",
+        "detail": "这一口径更偏好边界清楚、少代办、少操作化、不过度上价值的回复。只要回答不偏题，同时保持克制与抽离感，Claude 评审通常会给出更高评价。"
+      },
+      {
+        "title": "Gemini 评审倾向",
+        "detail": "在 B1、B2、B4 上，这一口径也更偏好少代办、少高位说教的风格，因此多数会把 Claude 判在前面；但在 B3 这类轻陪伴场景中，又更偏好更松弛、更像自然陪聊的回答，因此会把 Gemini 判在前面。"
+      },
+      {
+        "title": "分歧强度",
+        "detail": "在这轮 4 条代表性案例的补充检验中，回应者分歧均值为 1.54，评审分歧均值为 1.25。这说明模型之间确实存在稳定差异，而评审偏好也足以明显改变第一名的归属。"
+      }
+    ],
+    "bottomNote": "同样是高语境输入，不同用户需要的回应方式并不相同。当前三家模型都有较稳定的默认风格，但都还不够擅长根据当下语境快速切换。"
+  },
+  "caseSection": {
+    "eyebrow": "核心案例",
+    "title": "8 个核心案例，覆盖四类高频交互模式",
+    "styleLabel": "交互模式",
+    "roleLabel": "案例",
+    "scoreTitle": "三模型表现对比",
+    "scoreSubtitle": "分数由评测元数据自动汇总",
+    "materialsTitle": "相关材料",
+    "linkLabels": {
+      "meta": "说明",
+      "gpt": "GPT",
+      "claude": "Claude",
+      "gemini": "Gemini"
+    }
+  },
+  "insightSection": {
+    "highlightsEyebrow": "关键发现",
+    "highlightsTitle": "本轮评测最值得关注的几点",
+    "hypothesisEyebrow": "产品假设",
+    "hypothesisTitle": "下一步值得验证的工作假设",
+    "highlights": [
+      {
+        "title": "公开主结果来自 ChatGPT 评审口径",
+        "detail": "当前公开展示的 16 条正式结果采用 ChatGPT 评审口径。对话任务本身并不存在单一标准答案，不同用户与产品团队对理想回复的定义也可能不同。"
+      },
+      {
+        "title": "补充检验显示排序对评审口径明显敏感",
+        "detail": "在 4 条代表性案例的多评审检验中，B1、B2、B4 更容易被 Gemini 与 Claude 评审判给 Claude；B3 则更容易被判给 Gemini。"
+      },
+      {
+        "title": "更重要的问题不是谁排第一，而是谁能及时切换回应方式",
+        "detail": "比起单纯比较冠军排序，更关键的发现是：三家模型都有稳定的默认风格，但都还不够擅长根据用户输入及时调整回应策略。"
+      }
+    ],
+    "hypotheses": [
+      {
+        "title": "前段",
+        "detail": "对话开头最重要的是先建立一个用户愿意继续说下去的空间。承接速度和情绪理解都很关键，但不宜一开始就上升到抽象解释。"
+      },
+      {
+        "title": "中段",
+        "detail": "进入中段后，回复策略应根据用户的主观能动性分流：主见明确的用户更需要校准与对齐；主见较弱或表达混乱的用户更需要轻量结构化与温和推进。"
+      },
+      {
+        "title": "后段",
+        "detail": "后续轮次的最佳策略仍需进一步验证。现有结果至少说明，很多模型在开头能够接住用户，但真正拉开差距的往往发生在后段。"
+      },
+      {
+        "title": "后续扩展",
+        "detail": "如果继续扩样本，更值得优先沿情感烈度而不是单纯增加数量来扩展，以观察同一类隐性需求在更高烈度场景下的承接能力。"
+      }
+    ]
+  },
+  "pathSection": {
+    "eyebrow": "项目资料",
+    "title": "项目文档与结果入口",
+    "items": [
+      {
+        "label": "项目报告",
+        "displayPath": "项目报告.md",
+        "href": "./项目报告.md"
+      },
+      {
+        "label": "正式评测报告",
+        "displayPath": "正式评测报告.md",
+        "href": "./正式评测报告.md"
+      },
+      {
+        "label": "最终评估",
+        "displayPath": "assets/{locale}/eval/eval_batch2.md",
+        "hrefTemplate": "./assets/{locale}/eval/eval_batch2.md"
+      },
+      {
+        "label": "Gemini 评测样本",
+        "displayPath": "assets/{locale}/eval/probe4_gemini_judge_scores.csv",
+        "hrefTemplate": "./assets/{locale}/eval/probe4_gemini_judge_scores.csv"
+      },
+      {
+        "label": "Claude 评测样本",
+        "displayPath": "assets/{locale}/eval/probe4_claude_judge_scores.csv",
+        "hrefTemplate": "./assets/{locale}/eval/probe4_claude_judge_scores.csv"
+      },
+      {
+        "label": "核心 8 条资产",
+        "displayPath": "assets/{locale}/core_8/materials_index.md",
+        "hrefTemplate": "./assets/{locale}/core_8/materials_index.md"
+      },
+      {
+        "label": "完整 16 条资产",
+        "displayPath": "assets/{locale}/full_16/materials_index.md",
+        "hrefTemplate": "./assets/{locale}/full_16/materials_index.md"
+      }
+    ]
+  }
+}

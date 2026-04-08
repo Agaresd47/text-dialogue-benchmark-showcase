@@ -1,0 +1,231 @@
+{
+  "site": {
+    "title": "Chinese Dialogue Evaluation Project",
+    "description": "Bilingual showcase for a Chinese dialogue evaluation project, covering context, method, core cases, findings, and materials.",
+    "toggleButton": {
+      "zh": "EN",
+      "en": "中"
+    }
+  },
+  "project": {
+    "eyebrow": "Chinese Dialogue Evaluation Project",
+    "title": "Distilling a Reusable Chinese Dialogue Benchmark from Real Long-Context Conversations",
+    "oneLiner": "This project turns high-value slices from real long Chinese conversations into reusable benchmark cases, then compares models on dialogue strategy with a shared rubric and a multi-judge sensitivity check.",
+    "targetAudience": "For teams working on Chinese LLM training, evaluation, and conversational products",
+    "vision": "Built on real long-conversation data, the method can grow into a fuller evaluation pipeline: automatic segmentation, candidate selection, short-form and long-form case construction, and taxonomy-based diagnosis.",
+    "personaTitle": "Key Takeaway",
+    "personaText": "The main differences across models are not surface phrasing, but whether they choose the right response mode for the user's state: how they acknowledge, when they push or stop, how they handle boundaries, and whether they preserve relational continuity. Judge preference also shifts rankings, so the more useful question is how well a model adapts its strategy across user states."
+  },
+  "stats": {
+    "heroChips": [
+      {
+        "label": "Core Cases",
+        "key": "core_cases"
+      },
+      {
+        "label": "Full Cases",
+        "key": "full_cases"
+      },
+      {
+        "label": "Results",
+        "key": "results"
+      }
+    ],
+    "cards": [
+      {
+        "label": "Core Cases",
+        "key": "core_cases"
+      },
+      {
+        "label": "Full Cases",
+        "key": "full_cases"
+      },
+      {
+        "label": "Models",
+        "key": "models"
+      },
+      {
+        "label": "Results",
+        "key": "results"
+      }
+    ]
+  },
+  "intro": {
+    "cards": [
+      {
+        "eyebrow": "Problem",
+        "title": "Long-context Chinese dialogue is about interaction strategy, not wording alone",
+        "body": "The project focuses on strategic failures in ongoing dialogue rather than factual QA errors: missing implicit needs, choosing the wrong stance, pushing or closing too early, or losing relational continuity. These issues usually surface only in longer exchanges, not single-turn prompts."
+      },
+      {
+        "eyebrow": "Method",
+        "title": "A small but high-signal benchmark distilled from real conversations",
+        "body": "Using a large pool of real long-form Chinese conversations, the project compresses candidate windows and selects 16 formal cases, organized into four user-state buckets. Evaluation uses a shared rubric and error framework to compare stable behavioral differences across models."
+      },
+      {
+        "eyebrow": "Finding",
+        "title": "Differences show up in response strategy and style switching",
+        "body": "The three models differ consistently in stance, explanatory tendency, boundaries, push intensity, and timing of closure. A multi-judge check also shows that rankings are sensitive to judge preference. The key question is not one overall winner, but whether a model can switch strategy for different user states."
+      }
+    ],
+    "showAudienceChips": false,
+    "showReadingOrder": false
+  },
+  "bucketMeta": {
+    "Bucket 1": {
+      "code": "B1",
+      "label": "Seems to ask for advice, actually seeks confirmation"
+    },
+    "Bucket 2": {
+      "code": "B2",
+      "label": "Seems analytical, actually tests whether it is understood"
+    },
+    "Bucket 3": {
+      "code": "B3",
+      "label": "Signals are subtle and must be picked up proactively"
+    },
+    "Bucket 4": {
+      "code": "B4",
+      "label": "Has a view already; needs calibration and acknowledgment"
+    }
+  },
+  "modelSection": {
+    "eyebrow": "Model Findings",
+    "title": "Overall performance and main differences across the three models",
+    "figureAlt": "Comparison of three models on high-context Chinese dialogue tasks"
+  },
+  "modelRanking": [
+    {
+      "model": "gpt-5.4-mini",
+      "summary": "Under the current ChatGPT judge setting, it is the most natural overall and most consistently follows a strong rhythm: acknowledge first, judge second, then nudge lightly.",
+      "watchout": "Its weakness appears later in the conversation, where it can shift too early into problem-solving and sound slightly over-structured."
+    },
+    {
+      "model": "claude-haiku-4-5-bedrock",
+      "summary": "Ranks second overall. It keeps cleaner boundaries, stays on topic, and is comparatively restrained.",
+      "watchout": "Its main weakness is weaker follow-through: it often closes down too early to avoid mistakes, which limits dialogue development."
+    },
+    {
+      "model": "gemini-3-flash-preview",
+      "summary": "Ranks third overall. It abstracts quickly, but is also the most likely to speak from an explanatory, top-down position.",
+      "watchout": "It is more prone to conceptualization, over-interpretation, and lecture-like replies that drift away from dialogue."
+    }
+  ],
+  "modelProbe": {
+    "title": "Multi-Judge Sensitivity Check",
+    "lead": "Even with a shared rubric and error framework, different judge models still show meaningfully different preferences on the same replies.",
+    "cards": [
+      {
+        "title": "ChatGPT Judge Preference",
+        "detail": "This judge tends to reward replies that are steady, accurate, and gently forward-moving. Responses that first receive the user, then judge, then move the conversation one step forward tend to score best."
+      },
+      {
+        "title": "Claude Judge Preference",
+        "detail": "This judge tends to prefer clear boundaries, less task-taking, less operationalization, and less moralizing. Replies that stay on topic while remaining restrained usually do better here."
+      },
+      {
+        "title": "Gemini Judge Preference",
+        "detail": "On B1, B2, and B4, this judge also tends to prefer less task-taking and less top-down explanation, often favoring Claude. But on lighter companionship cases like B3, it prefers looser, more natural companion-like replies, which can favor Gemini."
+      },
+      {
+        "title": "Disagreement Strength",
+        "detail": "In the four-case sensitivity check, average responder spread is 1.54 and average judge spread is 1.25. The models differ in stable ways, but judge preference is also strong enough to change who ranks first."
+      }
+    ],
+    "bottomNote": "The same high-context input can call for different response modes. All three models have recognizable default styles, but none switches style quickly enough yet."
+  },
+  "caseSection": {
+    "eyebrow": "Core Cases",
+    "title": "Eight core cases covering four recurring interaction patterns",
+    "styleLabel": "Interaction Pattern",
+    "roleLabel": "Case",
+    "scoreTitle": "Three-Model Comparison",
+    "scoreSubtitle": "Scores are aggregated automatically from evaluation metadata",
+    "materialsTitle": "Related Materials",
+    "linkLabels": {
+      "meta": "Notes",
+      "gpt": "GPT",
+      "claude": "Claude",
+      "gemini": "Gemini"
+    }
+  },
+  "insightSection": {
+    "highlightsEyebrow": "Highlights",
+    "highlightsTitle": "What matters most from this evaluation round",
+    "hypothesisEyebrow": "Product Hypothesis",
+    "hypothesisTitle": "Working hypotheses worth testing next",
+    "highlights": [
+      {
+        "title": "The public main results use ChatGPT as judge",
+        "detail": "The 16 public benchmark results currently use ChatGPT as the main judge. Dialogue tasks do not have a single ground-truth answer, and different teams may define an ideal reply differently."
+      },
+      {
+        "title": "Ranking is clearly sensitive to judge choice",
+        "detail": "In the four-case multi-judge check, B1, B2, and B4 are more often awarded to Claude by Gemini and Claude judges, while B3 is more often awarded to Gemini."
+      },
+      {
+        "title": "The bigger issue is switching response mode, not who wins overall",
+        "detail": "More important than picking one overall winner is this: all three models have stable default styles, but none adapts its response strategy quickly enough to the user's state."
+      }
+    ],
+    "hypotheses": [
+      {
+        "title": "Opening",
+        "detail": "At the start of a conversation, the model should first create enough safety and space for the user to keep talking. Fast acknowledgment and emotional understanding matter, but abstract explanation is usually too early."
+      },
+      {
+        "title": "Middle",
+        "detail": "Later, strategy should branch based on user agency: users with a clear view need calibration and alignment, while users who are confused or less agentic need light structure and gentle forward movement."
+      },
+      {
+        "title": "Later Turns",
+        "detail": "The best strategy for later turns still needs more validation. What is already clear is that many models can handle the opening, while the real gap often shows up later."
+      },
+      {
+        "title": "Next Expansion",
+        "detail": "If the benchmark expands, emotional intensity is likely a better axis than raw case count. The goal is to test whether the same implicit need requires different handling at higher intensity."
+      }
+    ]
+  },
+  "pathSection": {
+    "eyebrow": "Project Materials",
+    "title": "Documents and result entry points",
+    "items": [
+      {
+        "label": "Project Report",
+        "displayPath": "项目报告.md",
+        "href": "./项目报告.md"
+      },
+      {
+        "label": "Formal Evaluation Report",
+        "displayPath": "正式评测报告.md",
+        "href": "./正式评测报告.md"
+      },
+      {
+        "label": "Final Evaluation",
+        "displayPath": "assets/{locale}/eval/eval_batch2.md",
+        "hrefTemplate": "./assets/{locale}/eval/eval_batch2.md"
+      },
+      {
+        "label": "Gemini Evaluation Samples",
+        "displayPath": "assets/{locale}/eval/probe4_gemini_judge_scores.csv",
+        "hrefTemplate": "./assets/{locale}/eval/probe4_gemini_judge_scores.csv"
+      },
+      {
+        "label": "Claude Evaluation Samples",
+        "displayPath": "assets/{locale}/eval/probe4_claude_judge_scores.csv",
+        "hrefTemplate": "./assets/{locale}/eval/probe4_claude_judge_scores.csv"
+      },
+      {
+        "label": "Core 8 Assets",
+        "displayPath": "assets/{locale}/core_8/materials_index.md",
+        "hrefTemplate": "./assets/{locale}/core_8/materials_index.md"
+      },
+      {
+        "label": "Full 16 Assets",
+        "displayPath": "assets/{locale}/full_16/materials_index.md",
+        "hrefTemplate": "./assets/{locale}/full_16/materials_index.md"
+      }
+    ]
+  }
+}

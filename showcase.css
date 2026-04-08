@@ -53,6 +53,32 @@ body::before {
   padding: 26px 0 72px;
 }
 
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.locale-toggle {
+  border: 1px solid rgba(31, 41, 40, 0.12);
+  border-radius: 999px;
+  padding: 10px 16px;
+  background: rgba(255, 250, 242, 0.88);
+  color: var(--ink);
+  cursor: pointer;
+  font: 700 0.8rem/1 "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.08em;
+  box-shadow: var(--shadow);
+}
+
+.locale-toggle:hover {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.hidden {
+  display: none;
+}
+
 .hero,
 .section,
 .intro-card,
