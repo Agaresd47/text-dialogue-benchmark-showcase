@@ -2,11 +2,7 @@
 
 这是一个面向中文大模型产品、训练、评测与数据策略岗位的公开展示项目。
 
-## 在线展示
-
-网页版入口：
-
-`https://agaresd47.github.io/text-dialogue-benchmark-showcase/`
+**[在线展示](https://agaresd47.github.io/text-dialogue-benchmark-showcase/)**
 
 ## 项目概述
 
