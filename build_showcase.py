@@ -14,6 +14,10 @@ FRAMEWORK_ZH_PATH = DATA_DIR / "framework.zh.json"
 FRAMEWORK_EN_PATH = DATA_DIR / "framework.en.json"
 TITLE_SOURCE_PATH = ROOT / "showcase-data.js"
 INDEX_PATH = ROOT / "index.html"
+FIGURE_BY_LOCALE = {
+    "zh": "./assets/zh/eval/refined_portfolio_graph_spacious_zh.png",
+    "en": "./assets/zh/eval/refined_portfolio_graph_compact_english.png",
+}
 
 NO_SUFFIX_KEYS = {
     "code",
@@ -92,7 +96,7 @@ def build_material(locale: str, showcase_source: dict[str, Any]) -> dict[str, An
         "locale": locale,
         "stats": showcase_source["stats"],
         "figure": {
-            "src": f"./assets/{locale}/eval/refined_portfolio_graph_spacious.png"
+            "src": FIGURE_BY_LOCALE[locale]
         },
         "bucketDistribution": showcase_source["bucketDistribution"],
         "coreCases": core_cases,

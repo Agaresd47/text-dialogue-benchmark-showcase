@@ -269,9 +269,11 @@ function render() {
       const displayPath = item.displayPath.includes("{locale}") ? resolvePath(item.displayPath, state.locale) : item.displayPath;
       return `
         <article class="path-card">
-          <h3>${escapeHtml(item.label)}</h3>
-          <p><a href="${escapeHtml(href)}" target="_blank" rel="noreferrer">${escapeHtml(displayPath)}</a></p>
-          <code>${escapeHtml(displayPath)}</code>
+          <a class="path-link" href="${escapeHtml(href)}" target="_blank" rel="noreferrer">
+            <span class="path-label">${escapeHtml(item.label)}</span>
+            <span class="path-separator">·</span>
+            <span class="path-target">${escapeHtml(displayPath)}</span>
+          </a>
         </article>
       `;
     })

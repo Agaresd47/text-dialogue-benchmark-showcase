@@ -9,7 +9,7 @@
   },
   "project": {
     "eyebrow": "Chinese Dialogue Evaluation Project",
-    "title": "Distilling a Reusable Chinese Dialogue Benchmark from Real Long-Context Conversations",
+    "title": "Reusable chinese dialogue benchmark from long conversations",
     "oneLiner": "This project turns high-value slices from real long Chinese conversations into reusable benchmark cases, then compares models on dialogue strategy with a shared rubric and a multi-judge sensitivity check.",
     "targetAudience": "For teams working on Chinese LLM training, evaluation, and conversational products",
     "vision": "Built on real long-conversation data, the method can grow into a fuller evaluation pipeline: automatic segmentation, candidate selection, short-form and long-form case construction, and taxonomy-based diagnosis.",
@@ -189,42 +189,37 @@
   },
   "pathSection": {
     "eyebrow": "Project Materials",
-    "title": "Documents and result entry points",
+    "title": "Documents and Results",
     "items": [
       {
         "label": "Project Report",
-        "displayPath": "项目报告.md",
-        "href": "./项目报告.md"
+        "displayPath": "Link",
+        "href": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/Project%20Report.md"
       },
       {
-        "label": "Formal Evaluation Report",
-        "displayPath": "正式评测报告.md",
-        "href": "./正式评测报告.md"
-      },
-      {
-        "label": "Final Evaluation",
-        "displayPath": "assets/{locale}/eval/eval_batch2.md",
-        "hrefTemplate": "./assets/{locale}/eval/eval_batch2.md"
+        "label": "Evaluation Report",
+        "displayPath": "Link",
+        "href": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/Evaluation%20Report.md"
       },
       {
         "label": "Gemini Evaluation Samples",
-        "displayPath": "assets/{locale}/eval/probe4_gemini_judge_scores.csv",
-        "hrefTemplate": "./assets/{locale}/eval/probe4_gemini_judge_scores.csv"
+        "displayPath": "Link",
+        "hrefTemplate": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/{locale}/eval/probe4_gemini_judge_scores.csv"
       },
       {
         "label": "Claude Evaluation Samples",
-        "displayPath": "assets/{locale}/eval/probe4_claude_judge_scores.csv",
-        "hrefTemplate": "./assets/{locale}/eval/probe4_claude_judge_scores.csv"
+        "displayPath": "Link",
+        "hrefTemplate": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/{locale}/eval/probe4_claude_judge_scores.csv"
       },
       {
         "label": "Core 8 Assets",
-        "displayPath": "assets/{locale}/core_8/materials_index.md",
-        "hrefTemplate": "./assets/{locale}/core_8/materials_index.md"
+        "displayPath": "Link",
+        "hrefTemplate": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/tree/main/assets/en/core_8"
       },
       {
         "label": "Full 16 Assets",
-        "displayPath": "assets/{locale}/full_16/materials_index.md",
-        "hrefTemplate": "./assets/{locale}/full_16/materials_index.md"
+        "displayPath": "Link",
+        "hrefTemplate": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/tree/main/assets/en/full_16"
       }
     ]
   }

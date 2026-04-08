@@ -9,7 +9,7 @@
   },
   "project": {
     "eyebrow": "中文文本对话评测项目",
-    "title": "从真实长对话中蒸馏出一套可复用的中文对话 benchmark",
+    "title": "从长对话中蒸馏出可复用的中文对话 benchmark",
     "oneLiner": "项目从长期积累的真实中文长对话中筛选高价值片段，整理为可重复测试的评测案例，并结合统一 rubric 与多评审敏感性检验，比对不同模型在对话策略层面的差异。",
     "targetAudience": "适用于中文大模型训练、评测与对话产品团队",
     "vision": "在已有长对话数据的基础上，本方法可以继续扩展为一条评测流水线，包括自动切分、候选筛选、短测与长测构造，以及基于错误分类的自动诊断。",
@@ -193,38 +193,33 @@
     "items": [
       {
         "label": "项目报告",
-        "displayPath": "项目报告.md",
-        "href": "./项目报告.md"
+        "displayPath": "链接",
+        "href": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/%E9%A1%B9%E7%9B%AE%E6%8A%A5%E5%91%8A.md"
       },
       {
-        "label": "正式评测报告",
-        "displayPath": "正式评测报告.md",
-        "href": "./正式评测报告.md"
-      },
-      {
-        "label": "最终评估",
-        "displayPath": "assets/{locale}/eval/eval_batch2.md",
-        "hrefTemplate": "./assets/{locale}/eval/eval_batch2.md"
+        "label": "评测报告",
+        "displayPath": "链接",
+        "href": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/%E8%AF%84%E6%B5%8B%E6%8A%A5%E5%91%8A.md"
       },
       {
         "label": "Gemini 评测样本",
-        "displayPath": "assets/{locale}/eval/probe4_gemini_judge_scores.csv",
-        "hrefTemplate": "./assets/{locale}/eval/probe4_gemini_judge_scores.csv"
+        "displayPath": "链接",
+        "hrefTemplate": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/{locale}/eval/probe4_gemini_judge_scores.csv"
       },
       {
         "label": "Claude 评测样本",
-        "displayPath": "assets/{locale}/eval/probe4_claude_judge_scores.csv",
-        "hrefTemplate": "./assets/{locale}/eval/probe4_claude_judge_scores.csv"
+        "displayPath": "链接",
+        "hrefTemplate": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/{locale}/eval/probe4_claude_judge_scores.csv"
       },
       {
         "label": "核心 8 条资产",
-        "displayPath": "assets/{locale}/core_8/materials_index.md",
-        "hrefTemplate": "./assets/{locale}/core_8/materials_index.md"
+        "displayPath": "链接",
+        "hrefTemplate": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/tree/main/assets/zh/core_8"
       },
       {
         "label": "完整 16 条资产",
-        "displayPath": "assets/{locale}/full_16/materials_index.md",
-        "hrefTemplate": "./assets/{locale}/full_16/materials_index.md"
+        "displayPath": "链接",
+        "hrefTemplate": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/tree/main/assets/zh/full_16"
       }
     ]
   }

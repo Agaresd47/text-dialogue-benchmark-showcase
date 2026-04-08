@@ -1,47 +1,63 @@
-# 项目报告
+# Project Report
 
-## 项目目标
+## Project Goal
 
-这个项目对外呈现为一个 benchmark 原型，但它背后并不是单纯把现成样本和现成结果拼在一起。我实际承担的工作主要包括四部分：第一，从百万字级长对话原矿中定义怎样的窗口值得继续研究，并把这些窗口压缩成 query packs、candidate pool 与正式 case；第二，把用户状态按隐性需求模式归纳为四类 bucket，并进一步定义每一类样本更适合测什么、常见失手点在哪里；第三，为 benchmark 配套 rubric 与 error taxonomy，使结果可以被结构化比较，而不是停留在“这个回答感觉不太对”的主观印象层面；第四，组织 baseline 跑数、筛选最终样本、分析结果，并把这些结果继续收口成适合公开展示和面试讲述的资产。
+This project is presented publicly as a Chinese dialogue benchmark prototype, but its core value does not lie in simply collecting cases and scores. Its main contribution is to turn experience from real long-running conversations into a reusable pipeline for sample distillation, evaluation design, and result analysis.
 
-换句话说，这个项目最想证明的不是我会写多少 case，而是我能够把真实长对话经验转成一套相对清楚的数据蒸馏、评测设计和结果分析流程。这也是它更贴近对话产品、模型评测和训练数据策略岗位的地方。
+My work in this project covers four main parts. First, I identify research-worthy windows from a million-word-scale pool of real long conversations and compress them into candidate sets and formal cases. Second, I organize user behavior into four recurring user-state categories based on latent interaction needs, and define what each category is meant to test and where models commonly fail. Third, I provide the benchmark with a shared rubric and error classification framework so that model outputs can be compared in a more structured way. Fourth, I organize baseline runs, select the final sample set, analyze model differences, and package the results into materials suitable for public presentation and interview discussion.
 
-## 项目背景
+What this project aims to demonstrate is not how many cases can be written, but whether real dialogue experience can be turned into a coherent workflow for data distillation, evaluation design, and result interpretation.
 
-这个项目最初并不是为了整理聊天记录，也不是为了展示某种私人化的使用体验，而是为了回答一个更接近模型训练端与产品评测端的问题：当团队已经拥有大量长周期真实对话材料时，怎样才能从中抽取出真正值得研究的片段，并把这些片段压缩成可重复测试、可跨模型比较、可逐步扩展的评测资产。相比继续积累更多分散的交互观察，我更关心的是如何把这些观察转成一套有方法论约束的中文对话行为评测流程。
+## Background
 
-因此，这个项目的核心不是“数据有多大”，而是“高价值样本如何被发现、定义和评估”。我希望它最终呈现出来的不是一个案例集合，而是一个小型但闭环的 benchmark 原型：它既能展示中文对话产品里的关键行为问题，也能说明这些问题如何被抽象为样本、rubric、taxonomy 和策略假设。
+The project did not begin as an attempt to archive chat logs or present a personal usage story. It began with a question closer to training and evaluation practice: when a team already has a large body of long-horizon real conversations, how can it identify the windows that are actually worth studying, and compress them into evaluation assets that are reusable, comparable across models, and extensible over time?
 
-## 数据来源与截断原则
+The key issue is therefore not data scale in itself, but how high-value samples are found, defined, and evaluated. What the project aims to present is not just a case collection, but a small closed-loop benchmark prototype that shows how major Chinese dialogue problems can be abstracted into sample design, rubric design, error analysis, and product-facing hypotheses.
 
-项目上游原矿来自长期积累的长对话文本，总规模已经超过百万字。这样的原矿足以继续向外扩展出大量 case，但如果直接把规模优势转成更大的公开 benchmark，问题并不会自动变简单。相反，样本数量一旦快速膨胀，case 质量、筛选标准、评估一致性和面试可解释性都会同步恶化。因此，这个项目从一开始就没有选择“尽快堆到 100 条”的方向，而是有意识地做了截断。
+## Data Source and Truncation Strategy
 
-这个截断分成三层。第一层是原矿层，保留大规模真实长对话作为研究池，但不把原始私密材料直接带入展示。第二层是候选层，把长对话压缩为 query packs 与 candidate pool，使后续的 case 生成不需要每次重新翻阅全部原文。第三层才是正式 benchmark 层，在当前阶段收口为 `full 16`，并从中进一步压出 `core 8` 作为最适合面试展示和模型比较的样本子集。这样处理之后，项目既保留了向 `50+` 或 `100+` 扩展的能力，也避免了用低质量 case 换取表面规模。
+The upstream source for the project is a large set of real Chinese long-form conversations, totaling more than one million words. This pool is large enough to support many more cases, but simply turning scale into a larger public benchmark would not automatically improve research value. As sample count grows quickly, case quality, selection standards, evaluation consistency, and explanatory clarity often deteriorate together.
 
-## benchmark 设计
+For that reason, the project uses a staged truncation strategy. The first layer is the research pool, which preserves the large body of real conversations while keeping private material out of the public showcase. The second layer is the candidate layer, which compresses the raw dialogues into candidate sets so that later case generation does not require repeated full-document review. The third layer is the formal benchmark layer, which currently ends at `full 16`, with `core 8` selected as the subset most suitable for public presentation and model comparison.
 
-在样本设计上，这个项目没有按话题做分类，而是按用户在对话中的隐性需求模式进行分桶。最终形成的四类 bucket，分别对应“表面求建议但实则求确认”“表面理性分析但实则测试模型能否跟上”“低显性表达、需要主动但克制地感知”“已有主见、需要 challenge 或 calibration”。这种分法的出发点是，中文对话产品最容易出问题的地方并不只是答错内容，而是没有读懂用户此刻到底在需要什么样的回应姿态。
+This design keeps the project expandable to `50+` or `100+` cases in the future while avoiding low-quality scale for its own sake.
 
-每条 case 都被统一压缩为 `Q11-Q13` 的三轮正式评测段，并在 baseline 中继续跑到 `q15`。这样设计的原因，是很多模型在前两三轮里看起来都能“接住”，但真正的差异常出现在后续轮次：有的模型会过早给方案，有的会过度收口，有的会逐渐滑向高位解释或模板化安慰。因此，这个 benchmark 关注的不只是首轮印象，而是模型在一段连续交互中的策略稳定性。
+## Benchmark Design
 
-为了让比较尽量落在同一标准上，项目还为每条 case 配套了统一 rubric 与 error taxonomy。rubric 的重点不在知识正确性，而在六个更接近产品体验的维度：模型是否识别了表层问题，是否抓到了隐性需求，是否选择了合适的回应策略，语气是否自然，边界是否稳，以及回复是否真正把对话往前推进了一步。taxonomy 的作用则是把“这个回答感觉不太对”进一步压缩成可复用的错误类型，例如过早建议、说教化输出、过度脑补、高位俯视或过度保守。
+The cases are not organized by topic. They are organized by latent user-state patterns in dialogue. The four resulting categories correspond to the following situations: the user appears to ask for advice but actually wants confirmation; the user appears to be analyzing but is really checking whether they are understood; the user expresses signals implicitly and requires active recognition; the user already has a position and needs calibration plus acknowledgment.
 
-## 当前结果与主要发现
+The point of this design is that Chinese dialogue systems often fail not because they miss the topic, but because they misread what kind of interaction the user actually needs.
 
-在当前版本中，项目已经形成 `full 16` 的完整 benchmark，并对三家模型跑完了 `16 × 3 = 48` 条 baseline 结果。需要说明的是，当前公开主分数来自 `ChatGPT eval`。这并不意味着存在一个唯一的对话真值，因为不同用户、不同产品经理，对理想回复风格的判断本来就可能不一样。从结果上看，这一轮评测已经足以支持几项阶段性判断。第一，在当前 `ChatGPT eval` 下，`gpt-5.4-mini` 在中文情感支持与解惑场景中整体最像人话，最稳定地表现出“先承接、再判断、再轻推一步”的风格。它的问题不在于没理解，而在于有时过早进入处理模式，使后半段略显工整。第二，`claude-haiku-4-5-bedrock` 的边界感和抽离感相对稳定，不容易乱飞，但在 `q15` 这一类后续轮次中容易过度收口，像是为了避免犯错而放弃推进。第三，`gemini-3-flash-preview` 的抽象归纳速度很快，但最容易站到解释位，出现概念化、过度脑补和过说明感，因此它更像一个“理解很多但不一定适合做对话产品”的模型。
+Each case is compressed into a formal evaluation segment spanning `Q11-Q13`, with baseline continuation through `q15`. This structure is important because many models look acceptable in the first few turns, while stable differences often emerge only later. Some models start prescribing too early, some close the conversation too quickly, and some drift into abstract explanation or template-like reassurance. The benchmark therefore focuses not only on first-turn quality, but on strategy stability across a short stretch of continuous interaction.
 
-从 case 角度看，`B2-PRODUCT-01`、`B4-CALIBRATION-01`、`B1-CONFIRM-01`、`B1-CONFIRM-03`、`B4-RELATION-01` 都已经证明了自己的展示价值，而 `B3-SUSPEND-01` 是这一轮补强中最关键的一条。它把原来较弱的 `Bucket 3` 第二个 core 槽位替换掉，使 benchmark 不再只覆盖“低能量陪伴”这一类较轻的状态，而开始覆盖“松下来却更悬空”的复杂中间态。也正是这条样本，让整个 `core 8` 的结构更完整，展示出来的产品问题也更立体。
+To make comparison more consistent, each case is paired with a shared rubric and error classification framework. The rubric focuses not on factual correctness, but on dimensions closer to product quality: whether the model identifies the surface issue, captures the latent need, selects an appropriate response strategy, maintains natural tone, keeps stable boundaries, and moves the conversation forward. The error framework turns vague impressions into reusable categories such as premature advice, preachy explanation, over-inference, overly elevated framing, or excessive caution.
 
-同时，这个项目后来又补做了一个 `4-case` 的 multi-judge appendix probe，用 `Gemini judge` 和 `Claude judge` 去复判 `B1-CONFIRM-01`、`B2-PRODUCT-01`、`B3-LIGHT-01`、`B4-CALIBRATION-01`。这个 probe 最有价值的地方，不在于重新给出一个“真正冠军”，而在于暴露出 conversation eval 本身会受 judge 偏好影响。当前 `ChatGPT eval` 下的 top responder，在新增两个 judge 下全部发生了 flip：`B1/B2/B4` 更容易被判给 `Claude`，`B3` 更容易被判给 `Gemini`。这说明当前结果更适合被理解为“某种 judge 风格下的相对排序”，而不是单一理念下的唯一正确答案。
+## Current Results and Main Findings
 
-但这个 probe 反而让一个更重要的洞见变得更清楚：不同的陪伴需求、关系位置和情感状态，需要不同的回应方式，而现有三家模型都更像是带着自己的默认风格来回答问题，而不是真的先判断场景、再切换风格。`GPT` 更容易走向清楚、稳妥、轻推进，`Claude` 更容易走向克制、少代办、少操作化，`Gemini` 则更容易走向概念化解释，或者在轻陪伴场景里变得更有“陪聊感”。换句话说，项目目前最有价值的发现，不只是“谁第一”，而是“主流 LLM 的风格切换能力仍然有限，关键能力应该是迅速切换到符合用户输入气口的回应方式”。
+At the current stage, the project has a complete `full 16` benchmark and `16 × 3 = 48` baseline outputs across three models. The public main results use `ChatGPT` as the judge. This should not be read as a claim that dialogue quality has a single objective ground truth. Different users and product teams may legitimately prefer different kinds of ideal replies.
 
-## 一个阶段性的产品假设
+Even so, the current round supports several useful conclusions. Under the present `ChatGPT` judging setup, `gpt-5.4-mini` performs most consistently like natural dialogue in Chinese emotional support and clarification scenarios. Its strongest pattern is a steady sequence of acknowledgment, judgment, and a light forward step. Its main weakness is not misunderstanding, but a tendency in later turns to shift too early into problem-solving mode, which can make the response feel slightly over-structured.
 
-除了模型排序和个别强样本之外，这个项目更重要的产出其实是一个仍在演化中的策略假设。基于当前样本与结果，我倾向于认为，高质量对话模型未必应该全程维持单一风格，而更可能需要一种分轮次、分用户主观能动性、并且分情感烈度的回复策略。在前段，模型首先要做的是建立安全场域，让用户愿意继续往下说。这里承接速度和情绪理解很重要，但不能过快上升到解释位，否则很容易像在给用户做总结。到了中段，如果用户已经表现出较强主观能动性，模型更需要的是某种带抽离感的 calibration；如果用户本身较混乱、较被动，模型则更适合采用较轻的结构化推进。与此同时，低到中等烈度场景下有效的回复方式，并不意味着同样适用于更高烈度的痛苦、迷茫或撕裂场景。至于后段，目前的结果已经足够说明“真正的差异常出现在这里”，但还不足以支持一个完全稳定的理想范式，因此这个部分仍然应该被视为待进一步验证的研究问题，而不是已经定稿的设计结论。
+`claude-haiku-4-5-bedrock` is comparatively stable in boundaries and restraint, and is less likely to drift off course. Its main issue is weaker continuation in later turns: it often closes down too early in order to avoid mistakes.
 
-## 扩展方向与当前结论
+`gemini-3-flash-preview` is strong at fast abstraction and pattern summarization, but also the most likely to move into an explanatory stance. That leads more easily to conceptualization, over-inference, and over-explanation, making the answer drift from dialogue toward commentary.
 
-如果把这个项目继续往外推，它最合理的扩展方式不是简单把 case 数量从 `16` 堆到 `100`，而是把上游原矿处理、中游样本构造和下游 taxonomy 评测逐步系统化。一个更有价值的方向，是对长对话进行切分，识别可能具有研究价值的窗口；随后为候选片段打研究价值分，衡量隐性需求密度、歧义度、失败易感性和上下文依赖程度；再把高价值窗口转写为短测与长测 case，用统一 taxonomy 追踪 bad case 的稳定来源；最终把这些结论回流到 prompt、policy、SFT 数据、偏好数据或 reward 设计中。与此同时，如果继续扩样本，最值得优先补的轴不是“再多几条轻场景 case”，而是“同一类需求在不同情感烈度下的承接能力”。这样扩展出来的将不是一个更大的案例库，而是一套更像研究与评测系统的能力。
+At the case level, `B2-PRODUCT-01`, `B4-CALIBRATION-01`, `B1-CONFIRM-01`, `B1-CONFIRM-03`, and `B4-RELATION-01` show strong showcase value, while `B3-SUSPEND-01` is the most important reinforcement sample in the current round. It broadens `Bucket 3` beyond a narrow low-energy companionship state into a more suspended intermediate state, making the `core 8` set more complete.
 
-因此，当前这个项目已经处在一个比较合理的截断点上。它的样本规模足以支持有说服力的 benchmark，评测流程足以展示扩展性，结果分析也已经能够支撑研究型叙事。对外最值得强调的，不是“我还能再写很多 case”，而是“我已经把大规模长对话原矿压缩成了一个可解释、可复用、可扩展的中文对话评测原型”。这才是它作为公开 showcase 的真正价值。
+The project also includes a supplementary multi-judge sensitivity check over `4` representative cases, using `Gemini` and `Claude` as additional judges for `B1-CONFIRM-01`, `B2-PRODUCT-01`, `B3-LIGHT-01`, and `B4-CALIBRATION-01`. The value of this probe is not to identify a final champion, but to show that conversation evaluation is materially affected by judge preference. The top responder under `ChatGPT` changes under the additional judges: `B1`, `B2`, and `B4` more often favor `Claude`, while `B3` more often favors `Gemini`.
+
+This makes a broader point clearer: different relational needs, emotional states, and user positions call for different response strategies, yet current models still rely too heavily on their default style instead of adapting quickly to the interaction at hand.
+
+## A Working Product Hypothesis
+
+Beyond ranking and strong cases, one of the more important outputs of this project is a working strategy hypothesis. Based on the current cases and results, I suspect that strong dialogue models should not maintain one fixed style throughout the conversation. Instead, they likely need a response strategy that varies by turn, by user agency, and by emotional intensity.
+
+In the opening phase, the system first needs to create a space in which the user is willing to continue. At this stage, acknowledgment speed and emotional reading matter, but the response should not rise too quickly into abstract explanation. In the middle phase, strategy should split by user agency: users with a clear position need more calibration and alignment, while users who are confused or passive need lighter structure and gentler forward movement. Effective replies at low or medium emotional intensity may also fail in higher-intensity states such as acute pain, confusion, or rupture. As for later turns, the current results already suggest that this is often where stable differences emerge, but not enough evidence exists yet to claim a settled ideal pattern.
+
+## Extension Direction and Current Conclusion
+
+If the project continues to expand, the most reasonable path is not simply to scale from `16` cases to `100`. A more valuable direction is to systematize the full pipeline from upstream dialogue processing to downstream error analysis. That would include segmenting long conversations, scoring candidate windows for research value, rewriting high-value windows into short- and long-form test cases, and using a shared error framework to track stable failure sources that can be fed back into prompts, policy, SFT data, preference data, or reward design.
+
+If more samples are added, the most important dimension to extend is not just quantity, but emotional intensity. The more useful question is whether the same latent need requires different forms of acknowledgment and guidance in higher-intensity situations.
+
+At its current stage, the project already sits at a reasonable truncation point. Its sample size is large enough to support a persuasive benchmark, its evaluation workflow is strong enough to show extensibility, and its analysis is already rich enough to support a research-oriented narrative. The key public value is not that more cases could still be added, but that a large pool of real long-form dialogue has already been compressed into an interpretable, reusable, and extensible Chinese dialogue evaluation prototype.
