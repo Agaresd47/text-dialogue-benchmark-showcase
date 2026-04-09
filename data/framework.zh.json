@@ -193,32 +193,32 @@
     "items": [
       {
         "label": "项目报告",
-        "displayPath": "链接",
+        "displayPath": "🔗",
         "href": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/%E9%A1%B9%E7%9B%AE%E6%8A%A5%E5%91%8A.md"
       },
       {
         "label": "评测报告",
-        "displayPath": "链接",
+        "displayPath": "🔗",
         "href": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/%E8%AF%84%E6%B5%8B%E6%8A%A5%E5%91%8A.md"
       },
       {
         "label": "Gemini 评测样本",
-        "displayPath": "链接",
+        "displayPath": "🔗",
         "hrefTemplate": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/{locale}/eval/probe4_gemini_judge_scores.csv"
       },
       {
         "label": "Claude 评测样本",
-        "displayPath": "链接",
+        "displayPath": "🔗",
         "hrefTemplate": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/{locale}/eval/probe4_claude_judge_scores.csv"
       },
       {
         "label": "核心 8 条资产",
-        "displayPath": "链接",
+        "displayPath": "🔗",
         "hrefTemplate": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/tree/main/assets/zh/core_8"
       },
       {
         "label": "完整 16 条资产",
-        "displayPath": "链接",
+        "displayPath": "🔗",
         "hrefTemplate": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/tree/main/assets/zh/full_16"
       }
     ]

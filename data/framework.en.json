@@ -193,32 +193,32 @@
     "items": [
       {
         "label": "Project Report",
-        "displayPath": "Link",
+        "displayPath": "🔗",
         "href": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/Project%20Report.md"
       },
       {
         "label": "Evaluation Report",
-        "displayPath": "Link",
+        "displayPath": "🔗",
         "href": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/Evaluation%20Report.md"
       },
       {
         "label": "Gemini Evaluation Samples",
-        "displayPath": "Link",
+        "displayPath": "🔗",
         "hrefTemplate": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/{locale}/eval/probe4_gemini_judge_scores.csv"
       },
       {
         "label": "Claude Evaluation Samples",
-        "displayPath": "Link",
+        "displayPath": "🔗",
         "hrefTemplate": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/blob/main/assets/{locale}/eval/probe4_claude_judge_scores.csv"
       },
       {
         "label": "Core 8 Assets",
-        "displayPath": "Link",
+        "displayPath": "🔗",
         "hrefTemplate": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/tree/main/assets/en/core_8"
       },
       {
         "label": "Full 16 Assets",
-        "displayPath": "Link",
+        "displayPath": "🔗",
         "hrefTemplate": "https://github.com/Agaresd47/text-dialogue-benchmark-showcase/tree/main/assets/en/full_16"
       }
     ]
