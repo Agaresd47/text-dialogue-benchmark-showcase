@@ -20,6 +20,8 @@ const app = {
   probeLead: document.getElementById("probe-lead"),
   probeGrid: document.getElementById("probe-grid"),
   probeBottomNote: document.getElementById("probe-bottom-note"),
+  patternTitle: document.getElementById("pattern-title"),
+  patternGrid: document.getElementById("pattern-grid"),
   bucketNav: document.getElementById("bucket-nav"),
   caseGrid: document.getElementById("case-grid"),
   highlights: document.getElementById("highlight-list"),
@@ -82,6 +84,16 @@ function qHtml(label, text) {
       <span class="q-label">${label}</span>
       <p>${escapeHtml(text).replace(/\n/g, "<br>")}</p>
     </div>
+  `;
+}
+
+function renderPatternCard(item) {
+  return `
+    <article class="probe-card">
+      <h3>${escapeHtml(item.name)}</h3>
+      <p>${escapeHtml(item.desc)}</p>
+      <p style="margin-top: 8px;"><strong>${escapeHtml(item.ideal)}</strong></p>
+    </article>
   `;
 }
 
@@ -188,6 +200,7 @@ function applyTextContent() {
   document.getElementById("model-title").textContent = framework.modelSection.title;
   document.getElementById("case-eyebrow").textContent = framework.caseSection.eyebrow;
   document.getElementById("case-title").textContent = framework.caseSection.title;
+  app.patternTitle.textContent = framework.caseSection.patternTitle;
   document.getElementById("highlights-eyebrow").textContent = framework.insightSection.highlightsEyebrow;
   document.getElementById("highlights-title").textContent = framework.insightSection.highlightsTitle;
   document.getElementById("hypothesis-eyebrow").textContent = framework.insightSection.hypothesisEyebrow;
@@ -259,6 +272,7 @@ function render() {
     })
     .join("");
 
+  app.patternGrid.innerHTML = framework.caseSection.patterns.map(renderPatternCard).join("");
   app.caseGrid.innerHTML = material.coreCases.map(renderCase).join("");
   renderStack(app.highlights, framework.insightSection.highlights);
   renderStack(app.hypothesis, framework.insightSection.hypotheses);

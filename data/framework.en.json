@@ -147,7 +147,30 @@
       "gpt": "GPT",
       "claude": "Claude",
       "gemini": "Gemini"
-    }
+    },
+    "patternTitle": "Four high-value Chinese interaction patterns",
+    "patterns": [
+      {
+        "name": "B1 / Seems to ask for advice, actually seeks confirmation",
+        "desc": "User appears to be asking \"what to do\", but really needs confirmation of their feelings and judgment.",
+        "ideal": "Ideal Response: Confirmation instead of task-taking"
+      },
+      {
+        "name": "B2 / Seems analytical, actually tests whether it is understood",
+        "desc": "User appears to be reviewing and analyzing, but is actually checking \"do you truly understand me\".",
+        "ideal": "Ideal Response: A feeling of being understood, not just analysis"
+      },
+      {
+        "name": "B3 / Signals are subtle and must be picked up proactively",
+        "desc": "User doesn't speak out directly, emotions and needs are buried deep, requiring the model to proactively sense them.",
+        "ideal": "Ideal Response: Recognize low-visibility signals, avoid being oblivious or over-imagining"
+      },
+      {
+        "name": "B4 / Has a view already, needs calibration and acknowledgment",
+        "desc": "User already has a direction, doesn't need re-guiding, but needs more detailed calibration and acknowledgment.",
+        "ideal": "Ideal Response: Calibration, acknowledgment, sense of boundary"
+      }
+    ]
   },
   "insightSection": {
     "highlightsEyebrow": "Highlights",
